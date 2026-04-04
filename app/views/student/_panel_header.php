@@ -11,7 +11,7 @@
                     <span><i class="fas fa-certificate"></i> <?= $panelCertCount ?? 0 ?> Katılım Belgesi</span>
                 </div>
             </div>
-            <a href="<?= url('eğitimler') ?>" class="btn btn-panel-cta">Tüm Eğitimler <i class="fas fa-arrow-right"></i></a>
+            <a href="<?= url('egitimler') ?>" class="btn btn-panel-cta">Tüm Eğitimler <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </section>

@@ -4,7 +4,7 @@
             <h1>Şifremi Unuttum</h1>
             <p>E-posta adresinizi girin, şifre sifirlama baglantisi gonderelim</p>
 
-            <form action="<?= url('şifremi-unuttum') ?>" method="POST" class="auth-form">
+            <form action="<?= url('sifremi-unuttum') ?>" method="POST" class="auth-form">
                 <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
 
                 <div class="form-group">

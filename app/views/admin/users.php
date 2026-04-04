@@ -7,7 +7,7 @@
             <th>Ad Soyad</th>
             <th>E-Posta</th>
             <th>Rol</th>
-            <th>Kayit Tarihi</th>
+            <th>Kayıt Tarihi</th>
             <th>Durum</th>
         </tr>
     </thead>

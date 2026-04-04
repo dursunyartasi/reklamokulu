@@ -2,7 +2,7 @@
     <div class="container">
         <h1>Ödeme</h1>
 
-        <form action="<?= url('ödeme-yap') ?>" method="POST" class="checkout-form">
+        <form action="<?= url('odeme-yap') ?>" method="POST" class="checkout-form">
             <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
 
             <div class="checkout-layout">

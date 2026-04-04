@@ -12,7 +12,7 @@
                     <span><i class="fas fa-check-circle"></i> Canlı Yayınlar</span>
                 </div>
                 <div class="hero-buttons">
-                    <a href="<?= url('eğitimler') ?>" class="btn btn-dark btn-lg">Eğitimleri İncele <i class="fas fa-arrow-right"></i></a>
+                    <a href="<?= url('egitimler') ?>" class="btn btn-dark btn-lg">Eğitimleri İncele <i class="fas fa-arrow-right"></i></a>
                     <a href="<?= url('kayit') ?>" class="btn btn-outline-white btn-lg">Ücretsiz Kayıt Ol</a>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                     <h2>Eğitimlerimiz</h2>
                     <p>Diledigin egitime simdi kaydol, öğrenme yolculuguna ilk adimini at.</p>
                 </div>
-                <a href="<?= url('eğitimler') ?>" class="btn btn-outline">Tum Eğitimlerimiz <i class="fas fa-arrow-right"></i></a>
+                <a href="<?= url('egitimler') ?>" class="btn btn-outline">Tum Eğitimlerimiz <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
         <div class="courses-grid courses-grid-4">
@@ -199,7 +199,7 @@
                 <h2>Kurumsal Eğitimlerimizi Keşfet</h2>
                 <p>Şirketinizin ihtiyaclarina ve sektorunuzun dinamiklerine yonelik hazirlanan kurumsal, şirket içi eğitimlerimizi keşfedin.</p>
             </div>
-            <a href="<?= url('kurumsal-eğitimler') ?>" class="btn btn-white btn-lg">Detaylı Bilgi Al <i class="fas fa-arrow-right"></i></a>
+            <a href="<?= url('kurumsal-egitimler') ?>" class="btn btn-white btn-lg">Detaylı Bilgi Al <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </section>

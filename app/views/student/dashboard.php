@@ -12,7 +12,7 @@
                     <span><i class="fas fa-certificate"></i> <?= $certificateCount ?? 0 ?> Katılım Belgesi</span>
                 </div>
             </div>
-            <a href="<?= url('eğitimler') ?>" class="btn btn-panel-cta">Tüm Eğitimler <i class="fas fa-arrow-right"></i></a>
+            <a href="<?= url('egitimler') ?>" class="btn btn-panel-cta">Tüm Eğitimler <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </section>
@@ -38,10 +38,10 @@
                     <a href="<?= url('panel/sertifikalar') ?>" class="panel-nav-item">
                         <i class="fas fa-certificate"></i> Katılım Belgeleri
                     </a>
-                    <a href="<?= url('panel/siparişler') ?>" class="panel-nav-item">
+                    <a href="<?= url('panel/siparisler') ?>" class="panel-nav-item">
                         <i class="fas fa-shopping-bag"></i> Siparişler
                     </a>
-                    <a href="<?= url('panel/görüşme') ?>" class="panel-nav-item">
+                    <a href="<?= url('panel/gorusme') ?>" class="panel-nav-item">
                         <i class="fas fa-comments"></i> Bire Bir Görüşme
                     </a>
                 </nav>
@@ -113,7 +113,7 @@
                         <i class="fas fa-graduation-cap fa-3x"></i>
                         <h3>Henuz Egitim Almadiniz</h3>
                         <p>Eğitimlerimize goz atin ve öğrenmeye başlayın.</p>
-                        <a href="<?= url('eğitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
+                        <a href="<?= url('egitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
                     </div>
                 <?php endif; ?>
             </div>

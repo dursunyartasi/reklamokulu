@@ -1,4 +1,4 @@
-<h1>Site Ayarlari</h1>
+<h1>Site Ayarları</h1>
 
 <form action="<?= url('admin/ayarlar') ?>" method="POST" class="admin-form">
     <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
@@ -6,11 +6,11 @@
     <h3>Genel</h3>
     <div class="form-row-2">
         <div class="form-group">
-            <label>Site Adi</label>
+            <label>Site Adı</label>
             <input type="text" name="site_name" value="<?= e($settings['site_name'] ?? '') ?>">
         </div>
         <div class="form-group">
-            <label>Site Aciklamasi</label>
+            <label>Site Açıklaması</label>
             <input type="text" name="site_description" value="<?= e($settings['site_description'] ?? '') ?>">
         </div>
     </div>
@@ -59,25 +59,25 @@
         </div>
     </div>
 
-    <h3>Kampanya Geri Sayim</h3>
+    <h3>Kampanya Geri Sayım</h3>
     <div class="form-row-2">
         <div class="form-group">
-            <label>Geri Sayim Tarihi</label>
+            <label>Geri Sayım Tarihi</label>
             <input type="datetime-local" name="countdown_date" value="<?= e($settings['countdown_date'] ?? '') ?>">
         </div>
         <div class="form-group">
-            <label>Geri Sayim Metni</label>
+            <label>Geri Sayım Metni</label>
             <input type="text" name="countdown_text" value="<?= e($settings['countdown_text'] ?? '') ?>">
         </div>
     </div>
 
     <h3>Ana Sayfa</h3>
     <div class="form-group">
-        <label>Hero Baslik</label>
+        <label>Hero Başlık</label>
         <input type="text" name="hero_title" value="<?= e($settings['hero_title'] ?? '') ?>">
     </div>
     <div class="form-group">
-        <label>Hero Alt Baslik</label>
+        <label>Hero Alt Başlık</label>
         <input type="text" name="hero_subtitle" value="<?= e($settings['hero_subtitle'] ?? '') ?>">
     </div>
 

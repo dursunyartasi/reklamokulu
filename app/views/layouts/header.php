@@ -16,7 +16,7 @@
 <div class="top-bar">
     <div class="container">
         <div class="top-bar-inner">
-            <form class="search-bar" action="<?= url('eğitimler') ?>" method="GET">
+            <form class="search-bar" action="<?= url('egitimler') ?>" method="GET">
                 <input type="text" name="q" placeholder="Eğitim Arama" value="<?= e($_GET['q'] ?? '') ?>">
                 <button type="submit"><i class="fas fa-search"></i></button>
             </form>
@@ -52,10 +52,10 @@
 
             <nav class="main-nav" id="mainNav">
                 <div class="nav-item has-dropdown">
-                    <a href="<?= url('eğitimler') ?>">Online Eğitimler <i class="fas fa-chevron-down"></i></a>
+                    <a href="<?= url('egitimler') ?>">Online Eğitimler <i class="fas fa-chevron-down"></i></a>
                 </div>
-                <a href="<?= url('eğitmenler') ?>">Eğitmenler</a>
-                <a href="<?= url('kurumsal-eğitimler') ?>">Kurumsal Eğitim</a>
+                <a href="<?= url('egitmenler') ?>">Eğitmenler</a>
+                <a href="<?= url('kurumsal-egitimler') ?>">Kurumsal Eğitim</a>
                 <a href="<?= url('blog') ?>">Blog</a>
                 <a href="<?= url('neden-biz') ?>">Neden Biz?</a>
                 <a href="<?= url('iletisim') ?>">İletişim</a>

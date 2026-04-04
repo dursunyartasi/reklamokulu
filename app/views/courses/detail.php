@@ -2,7 +2,7 @@
 <div class="breadcrumb-bar">
     <div class="container">
         <a href="<?= url('') ?>">Anasayfa</a> <i class="fas fa-chevron-right"></i>
-        <a href="<?= url('eğitimler') ?>">Eğitimlerimiz</a> <i class="fas fa-chevron-right"></i>
+        <a href="<?= url('egitimler') ?>">Eğitimlerimiz</a> <i class="fas fa-chevron-right"></i>
         <span><?= e($course['title']) ?></span>
     </div>
 </div>

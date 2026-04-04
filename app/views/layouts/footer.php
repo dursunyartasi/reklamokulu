@@ -16,10 +16,10 @@
 
             <div class="footer-col">
                 <h4>Kurumsal</h4>
-                <a href="<?= url('eğitimler') ?>">Egitimler</a>
-                <a href="<?= url('eğitmenler') ?>">Eğitmenler</a>
+                <a href="<?= url('egitimler') ?>">Egitimler</a>
+                <a href="<?= url('egitmenler') ?>">Eğitmenler</a>
                 <a href="<?= url('neden-biz') ?>">Neden Biz?</a>
-                <a href="<?= url('kurumsal-eğitimler') ?>">Kurumsal Eğitim</a>
+                <a href="<?= url('kurumsal-egitimler') ?>">Kurumsal Eğitim</a>
             </div>
 
             <div class="footer-col">

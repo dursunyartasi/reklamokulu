@@ -16,7 +16,7 @@
         </tr>
         <?php endforeach; ?>
         <?php if (empty($messages)): ?>
-        <tr><td colspan="5" class="text-center">Henuz mesaj yok</td></tr>
+        <tr><td colspan="5" class="text-center">Henüz mesaj yok</td></tr>
         <?php endif; ?>
     </tbody>
 </table>
@@ -41,7 +41,7 @@
         </tr>
         <?php endforeach; ?>
         <?php if (empty($corporateRequests)): ?>
-        <tr><td colspan="5" class="text-center">Henuz talep yok</td></tr>
+        <tr><td colspan="5" class="text-center">Henüz talep yok</td></tr>
         <?php endif; ?>
     </tbody>
 </table>

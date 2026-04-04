@@ -15,10 +15,10 @@
         <a href="<?= url('panel/sertifikalar') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'sertifikalar' ? 'active' : '' ?>">
             <i class="fas fa-certificate"></i> Katılım Belgeleri
         </a>
-        <a href="<?= url('panel/siparişler') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'siparişler' ? 'active' : '' ?>">
+        <a href="<?= url('panel/siparisler') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'siparisler' ? 'active' : '' ?>">
             <i class="fas fa-shopping-bag"></i> Siparişler
         </a>
-        <a href="<?= url('panel/görüşme') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'görüşme' ? 'active' : '' ?>">
+        <a href="<?= url('panel/gorusme') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'gorusme' ? 'active' : '' ?>">
             <i class="fas fa-comments"></i> Bire Bir Görüşme
         </a>
     </nav>

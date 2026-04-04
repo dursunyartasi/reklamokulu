@@ -14,7 +14,7 @@
                         <i class="fas fa-shopping-bag fa-3x"></i>
                         <h3>Henuz Siparişiniz Yok</h3>
                         <p>Egitim satin aldiginizda siparişleriniz burada gorunecektir.</p>
-                        <a href="<?= url('eğitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
+                        <a href="<?= url('egitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
                     </div>
                 <?php else: ?>
                     <div class="orders-list">

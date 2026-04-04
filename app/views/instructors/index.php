@@ -30,7 +30,7 @@
                         <a href="<?= e($inst['instagram']) ?>" target="_blank"><i class="fab fa-instagram"></i></a>
                     <?php endif; ?>
                 </div>
-                <a href="<?= url('eğitmen/' . slugify($inst['first_name'] . ' ' . $inst['last_name'])) ?>" class="btn btn-outline btn-sm">Profili Gor</a>
+                <a href="<?= url('egitmen/' . slugify($inst['first_name'] . ' ' . $inst['last_name'])) ?>" class="btn btn-outline btn-sm">Profili Gor</a>
             </div>
             <?php endforeach; ?>
         </div>

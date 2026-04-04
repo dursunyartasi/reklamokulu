@@ -7,11 +7,11 @@
     <thead>
         <tr>
             <th>Kurs Adı</th>
-            <th>Egitmen</th>
+            <th>Eğitmen</th>
             <th>Fiyat</th>
             <th>Öğrenci</th>
             <th>Durum</th>
-            <th>Islemler</th>
+            <th>İşlemler</th>
         </tr>
     </thead>
     <tbody>
@@ -40,12 +40,12 @@
             </td>
             <td>
                 <a href="<?= url('admin/kurslar/' . $course['id'] . '/duzenle') ?>" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></a>
-                <a href="<?= url('admin/kurslar/' . $course['id'] . '/sil') ?>" class="btn btn-sm btn-danger" onclick="return confirm('Silmek istediginize emin misiniz?')"><i class="fas fa-trash"></i></a>
+                <a href="<?= url('admin/kurslar/' . $course['id'] . '/sil') ?>" class="btn btn-sm btn-danger" onclick="return confirm('Silmek istediğinize emin misiniz?')"><i class="fas fa-trash"></i></a>
             </td>
         </tr>
         <?php endforeach; ?>
         <?php if (empty($courses)): ?>
-        <tr><td colspan="6" class="text-center">Henuz kurs yok</td></tr>
+        <tr><td colspan="6" class="text-center">Henüz kurs yok</td></tr>
         <?php endif; ?>
     </tbody>
 </table>

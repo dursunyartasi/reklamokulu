@@ -19,7 +19,7 @@
                 </div>
 
                 <?php if (!empty($enrolledCourses)): ?>
-                <form action="<?= url('panel/görüşme-talebi') ?>" method="POST" class="meeting-form">
+                <form action="<?= url('panel/gorusme-talebi') ?>" method="POST" class="meeting-form">
                     <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
 
                     <div class="form-row-2">
@@ -108,7 +108,7 @@
                         <i class="fas fa-comments fa-3x"></i>
                         <h3>Bire Bir Görüşme Icin Egitim Alin</h3>
                         <p>Bir egitime kayit oldugunuzda bire bir görüşme hakki kazanirsiniz.</p>
-                        <a href="<?= url('eğitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
+                        <a href="<?= url('egitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
                     </div>
                 <?php endif; ?>
             </div>

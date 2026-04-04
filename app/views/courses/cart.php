@@ -7,7 +7,7 @@
                 <i class="fas fa-shopping-cart fa-3x"></i>
                 <h3>Sepetiniz Boş</h3>
                 <p>Eğitimlerimize goz atin ve kariyerinize yatirim yapin.</p>
-                <a href="<?= url('eğitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
+                <a href="<?= url('egitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
             </div>
         <?php else: ?>
             <div class="cart-layout">
@@ -38,7 +38,7 @@
                         <span>Toplam</span>
                         <span class="summary-total"><?= formatPrice($total) ?></span>
                     </div>
-                    <a href="<?= url('ödeme') ?>" class="btn btn-primary btn-block btn-lg">Ödemeye Gec</a>
+                    <a href="<?= url('odeme') ?>" class="btn btn-primary btn-block btn-lg">Ödemeye Gec</a>
                 </div>
             </div>
         <?php endif; ?>

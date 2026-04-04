@@ -4,7 +4,7 @@
     <thead>
         <tr>
             <th>Sipariş No</th>
-            <th>Musteri</th>
+            <th>Müşteri</th>
             <th>E-Posta</th>
             <th>Tutar</th>
             <th>İndirim</th>
@@ -22,14 +22,14 @@
             <td><?= $order['discount_amount'] > 0 ? formatPrice($order['discount_amount']) : '-' ?></td>
             <td>
                 <span class="status-badge status-<?= $order['status'] ?>">
-                    <?= $order['status'] === 'completed' ? 'Tamamlandı' : ($order['status'] === 'pending' ? 'Bekliyor' : ($order['status'] === 'failed' ? 'Basarisiz' : 'Iade')) ?>
+                    <?= $order['status'] === 'completed' ? 'Tamamlandı' : ($order['status'] === 'pending' ? 'Bekliyor' : ($order['status'] === 'failed' ? 'Başarısız' : 'Iade')) ?>
                 </span>
             </td>
             <td><?= date('d.m.Y H:i', strtotime($order['created_at'])) ?></td>
         </tr>
         <?php endforeach; ?>
         <?php if (empty($orders)): ?>
-        <tr><td colspan="7" class="text-center">Henuz sipariş yok</td></tr>
+        <tr><td colspan="7" class="text-center">Henüz sipariş yok</td></tr>
         <?php endif; ?>
     </tbody>
 </table>

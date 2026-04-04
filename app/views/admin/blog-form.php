@@ -4,12 +4,12 @@
     <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
 
     <div class="form-group">
-        <label>Baslik *</label>
+        <label>Başlık *</label>
         <input type="text" name="title" required>
     </div>
 
     <div class="form-group">
-        <label>Ozet</label>
+        <label>Özet</label>
         <input type="text" name="excerpt" maxlength="500">
     </div>
 
@@ -25,7 +25,7 @@
 
     <div class="form-group">
         <label class="checkbox-label">
-            <input type="checkbox" name="is_published"> Yayinla
+            <input type="checkbox" name="is_published"> Yayınla
         </label>
     </div>
 

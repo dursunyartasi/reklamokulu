@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="form-row">
-                    <a href="<?= url('şifremi-unuttum') ?>" class="forgot-link">Şifremi Unuttum</a>
+                    <a href="<?= url('sifremi-unuttum') ?>" class="forgot-link">Şifremi Unuttum</a>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block btn-lg">Giriş Yap</button>

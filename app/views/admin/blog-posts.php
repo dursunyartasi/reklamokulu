@@ -1,14 +1,14 @@
 <div class="admin-header-row">
-    <h1>Blog Yazilari</h1>
-    <a href="<?= url('admin/blog/ekle') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Yeni Yazi</a>
+    <h1>Blog Yazıları</h1>
+    <a href="<?= url('admin/blog/ekle') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Yeni Yazı</a>
 </div>
 
 <table class="admin-table">
     <thead>
         <tr>
-            <th>Baslik</th>
+            <th>Başlık</th>
             <th>Yazar</th>
-            <th>Goruntuleme</th>
+            <th>Görüntüleme</th>
             <th>Durum</th>
             <th>Tarih</th>
         </tr>
@@ -28,7 +28,7 @@
         </tr>
         <?php endforeach; ?>
         <?php if (empty($posts)): ?>
-        <tr><td colspan="5" class="text-center">Henuz blog yazisi yok</td></tr>
+        <tr><td colspan="5" class="text-center">Henüz blog yazısı yok</td></tr>
         <?php endif; ?>
     </tbody>
 </table>

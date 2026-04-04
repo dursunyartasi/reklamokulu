@@ -14,6 +14,9 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 # AllowOverride All - .htaccess calissin
 RUN sed -ri -e 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
 
+# Cache bust - force rebuild
+ARG CACHEBUST=1
+
 # Proje dosyalarini kopyala
 COPY . /var/www/html/
 

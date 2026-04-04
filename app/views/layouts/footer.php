@@ -47,6 +47,18 @@
     </div>
 </footer>
 
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-bottom-nav">
+    <a href="<?= url('') ?>"><i class="fas fa-home"></i> Ana Sayfa</a>
+    <a href="<?= url('egitimler') ?>"><i class="fas fa-graduation-cap"></i> Eğitimler</a>
+    <a href="<?= url('sepet') ?>"><i class="fas fa-shopping-cart"></i> Sepet</a>
+    <?php if (isLoggedIn()): ?>
+        <a href="<?= url('panel') ?>"><i class="fas fa-user"></i> Panelim</a>
+    <?php else: ?>
+        <a href="<?= url('giris') ?>"><i class="fas fa-user"></i> Giriş</a>
+    <?php endif; ?>
+</nav>
+
 <script src="<?= url('js/app.js') ?>"></script>
 <script>
 if ('serviceWorker' in navigator) {

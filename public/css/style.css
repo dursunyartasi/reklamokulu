@@ -844,4 +844,28 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
     .footer-legal { flex-wrap: wrap; justify-content: center; }
     .auth-card { padding: 1.5rem; }
     .btn-panel { display: none; }
+    .course-price-row { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+    .corporate-cta h2 { font-size: 1.5rem; }
+    .testimonial-card { padding: 1.25rem; }
+    .panel-hero-inner { flex-direction: column; text-align: center; }
+    .btn-panel-cta { width: 100%; text-align: center; }
+    .panel-stats-grid { grid-template-columns: 1fr; }
+
+    /* Mobil bottom nav bar */
+    .mobile-bottom-nav {
+        display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+        background: var(--bg); border-top: 1px solid var(--border);
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1); padding: 0.5rem 0;
+    }
+    .mobile-bottom-nav a {
+        flex: 1; display: flex; flex-direction: column; align-items: center;
+        gap: 0.2rem; color: var(--text-light); font-size: 0.65rem; text-decoration: none;
+        padding: 0.25rem 0;
+    }
+    .mobile-bottom-nav a i { font-size: 1.1rem; }
+    .mobile-bottom-nav a.active { color: var(--primary); }
+    body { padding-bottom: 60px; }
 }
+
+/* Desktop hide mobile nav */
+.mobile-bottom-nav { display: none; }

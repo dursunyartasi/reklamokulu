@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($pageTitle ?? 'Reklam Okulu') ?></title>
     <meta name="description" content="<?= e($settings['site_description'] ?? 'Dijital Pazarlama Eğitim Platformu') ?>">
+    <!-- PWA -->
+    <link rel="manifest" href="<?= url('manifest.json') ?>">
+    <meta name="theme-color" content="#E8922E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ReklamOkulu">
+    <link rel="apple-touch-icon" href="<?= url('icons/icon-192x192.png') ?>">
+    <!-- Fonts & CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="<?= url('css/style.css') ?>?v=20260405">
+    <link rel="stylesheet" href="<?= url('css/style.css') ?>?v=20260405b">
 </head>
 <body>
 

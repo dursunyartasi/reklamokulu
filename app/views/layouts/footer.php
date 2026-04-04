@@ -42,11 +42,16 @@
                 <a href="<?= url('kvkk') ?>">KVKK</a>
                 <a href="<?= url('iptal-iade') ?>">Iptal & Iade</a>
             </div>
-            <p>&copy; <?= date('Y') ?> Reklam Okulu. Tum haklari saklidir.</p>
+            <p>&copy; <?= date('Y') ?> Reklam Okulu. Tüm hakları saklıdır.</p>
         </div>
     </div>
 </footer>
 
 <script src="<?= url('js/app.js') ?>"></script>
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('<?= url('sw.js') ?>').catch(() => {});
+}
+</script>
 </body>
 </html>

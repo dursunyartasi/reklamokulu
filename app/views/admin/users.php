@@ -1,4 +1,4 @@
-<h1>Kullanicilar</h1>
+<h1>Kullanıcılar</h1>
 
 <table class="admin-table">
     <thead>

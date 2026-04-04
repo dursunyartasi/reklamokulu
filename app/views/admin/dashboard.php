@@ -5,7 +5,7 @@
         <div class="stat-icon bg-blue"><i class="fas fa-users"></i></div>
         <div>
             <h3><?= number_format($stats['total_users']) ?></h3>
-            <p>Toplam Kullanici</p>
+            <p>Toplam Kullanıcı</p>
         </div>
     </div>
     <div class="admin-stat-card">

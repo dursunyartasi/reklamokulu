@@ -6,8 +6,8 @@
     <title><?= e($pageTitle ?? 'Admin') ?> - Reklam Okulu Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="<?= url('css/style.css') ?>">
-    <link rel="stylesheet" href="<?= url('css/admin.css') ?>">
+    <link rel="stylesheet" href="<?= url('css/style.css') ?>?v=20260405">
+    <link rel="stylesheet" href="<?= url('css/admin.css') ?>?v=20260405">
 </head>
 <body class="admin-body">
 
@@ -26,9 +26,9 @@
                 <i class="fas fa-graduation-cap"></i> Kurslar
             </a>
             <a href="<?= url('admin/kullanicilar') ?>" class="<?= ($view ?? '') === 'users' ? 'active' : '' ?>">
-                <i class="fas fa-users"></i> Kullanicilar
+                <i class="fas fa-users"></i> Kullanıcılar
             </a>
-            <a href="<?= url('admin/siparişler') ?>" class="<?= ($view ?? '') === 'orders' ? 'active' : '' ?>">
+            <a href="<?= url('admin/siparisler') ?>" class="<?= ($view ?? '') === 'orders' ? 'active' : '' ?>">
                 <i class="fas fa-shopping-bag"></i> Siparişler
             </a>
             <a href="<?= url('admin/blog') ?>" class="<?= ($view ?? '') === 'blog-posts' || ($view ?? '') === 'blog-form' ? 'active' : '' ?>">
@@ -41,7 +41,7 @@
                 <i class="fas fa-cog"></i> Ayarlar
             </a>
             <hr>
-            <a href="<?= url('') ?>" target="_blank"><i class="fas fa-external-link-alt"></i> Siteyi Gor</a>
+            <a href="<?= url('') ?>" target="_blank"><i class="fas fa-external-link-alt"></i> Siteyi Gör</a>
             <a href="<?= url('cikis') ?>"><i class="fas fa-sign-out-alt"></i> Çıkış</a>
         </nav>
     </aside>

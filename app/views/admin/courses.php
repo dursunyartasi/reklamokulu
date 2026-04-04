@@ -6,7 +6,7 @@
 <table class="admin-table">
     <thead>
         <tr>
-            <th>Kurs Adi</th>
+            <th>Kurs Adı</th>
             <th>Egitmen</th>
             <th>Fiyat</th>
             <th>Öğrenci</th>
@@ -35,7 +35,7 @@
             <td><?= $course['total_students'] ?></td>
             <td>
                 <span class="status-badge <?= $course['is_published'] ? 'status-completed' : 'status-pending' ?>">
-                    <?= $course['is_published'] ? 'Yayinda' : 'Taslak' ?>
+                    <?= $course['is_published'] ? 'Yayında' : 'Taslak' ?>
                 </span>
             </td>
             <td>

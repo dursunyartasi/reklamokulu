@@ -1,18 +1,18 @@
-<h1><?= isset($course) ? 'Kurs Duzenle' : 'Yeni Kurs' ?></h1>
+<h1><?= isset($course) ? 'Kurs Düzenle' : 'Yeni Kurs' ?></h1>
 
-<form action="<?= isset($course) ? url('admin/kurslar/' . $course['id'] . '/güncelle') : url('admin/kurslar/kaydet') ?>"
+<form action="<?= isset($course) ? url('admin/kurslar/' . $course['id'] . '/guncelle') : url('admin/kurslar/kaydet') ?>"
       method="POST" enctype="multipart/form-data" class="admin-form">
     <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
 
     <div class="form-row-2">
         <div class="form-group">
-            <label>Kurs Adi *</label>
+            <label>Kurs Adı *</label>
             <input type="text" name="title" value="<?= e($course['title'] ?? '') ?>" required>
         </div>
         <div class="form-group">
             <label>Egitmen *</label>
             <select name="instructor_id" required>
-                <option value="">Secin...</option>
+                <option value="">Seçin...</option>
                 <?php foreach ($instructors as $inst): ?>
                     <option value="<?= $inst['id'] ?>" <?= (isset($course) && $course['instructor_id'] == $inst['id']) ? 'selected' : '' ?>>
                         <?= e($inst['first_name'] . ' ' . $inst['last_name']) ?>
@@ -26,7 +26,7 @@
         <div class="form-group">
             <label>Kategori</label>
             <select name="category_id">
-                <option value="">Secin...</option>
+                <option value="">Seçin...</option>
                 <?php foreach ($categories as $cat): ?>
                     <option value="<?= $cat['id'] ?>" <?= (isset($course) && $course['category_id'] == $cat['id']) ? 'selected' : '' ?>>
                         <?= e($cat['name']) ?>
@@ -37,20 +37,20 @@
         <div class="form-group">
             <label>Seviye</label>
             <select name="level">
-                <option value="beginner" <?= (isset($course) && $course['level'] === 'beginner') ? 'selected' : '' ?>>Baslangic</option>
+                <option value="beginner" <?= (isset($course) && $course['level'] === 'beginner') ? 'selected' : '' ?>>Başlangıç</option>
                 <option value="intermediate" <?= (isset($course) && $course['level'] === 'intermediate') ? 'selected' : '' ?>>Orta</option>
-                <option value="advanced" <?= (isset($course) && $course['level'] === 'advanced') ? 'selected' : '' ?>>Ileri</option>
+                <option value="advanced" <?= (isset($course) && $course['level'] === 'advanced') ? 'selected' : '' ?>>İleri</option>
             </select>
         </div>
     </div>
 
     <div class="form-group">
-        <label>Kisa Aciklama</label>
+        <label>Kısa Açıklama</label>
         <input type="text" name="short_description" value="<?= e($course['short_description'] ?? '') ?>" maxlength="500">
     </div>
 
     <div class="form-group">
-        <label>Detayli Aciklama</label>
+        <label>Detaylı Açıklama</label>
         <textarea name="description" rows="8"><?= e($course['description'] ?? '') ?></textarea>
     </div>
 
@@ -71,13 +71,13 @@
             <input type="text" name="duration" value="<?= e($course['duration'] ?? '') ?>" placeholder="ornek: 10s 25dk">
         </div>
         <div class="form-group">
-            <label>Tanitim Video URL</label>
+            <label>Tanıtım Video URL</label>
             <input type="url" name="preview_video" value="<?= e($course['preview_video'] ?? '') ?>">
         </div>
     </div>
 
     <div class="form-group">
-        <label>Kapak Gorseli</label>
+        <label>Kapak Görseli</label>
         <input type="file" name="thumbnail" accept="image/*">
         <?php if (isset($course) && $course['thumbnail']): ?>
             <img src="<?= url($course['thumbnail']) ?>" alt="" class="form-preview-img">
@@ -88,7 +88,7 @@
         <div class="form-group">
             <label class="checkbox-label">
                 <input type="checkbox" name="is_published" <?= (isset($course) && $course['is_published']) ? 'checked' : '' ?>>
-                Yayinda
+                Yayında
             </label>
         </div>
         <div class="form-group">
@@ -104,15 +104,15 @@
 
 <?php if (isset($course) && isset($sections)): ?>
 <hr>
-<h2>Kurs İçeriği (Bolumler & Dersler)</h2>
+<h2>Kurs İçeriği (Bölümler & Dersler)</h2>
 
-<!-- Bolum Ekle -->
+<!-- Bölüm Ekle -->
 <form action="<?= url('admin/bolum-ekle') ?>" method="POST" class="inline-form">
     <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
     <input type="hidden" name="course_id" value="<?= $course['id'] ?>">
-    <input type="text" name="title" placeholder="Bolum Adi" required>
+    <input type="text" name="title" placeholder="Bölüm Adı" required>
     <input type="number" name="sort_order" placeholder="Sira" value="0" style="width:80px">
-    <button type="submit" class="btn btn-primary btn-sm">Bolum Ekle</button>
+    <button type="submit" class="btn btn-primary btn-sm">Bölüm Ekle</button>
 </form>
 
 <?php foreach ($sections as $section): ?>
@@ -123,7 +123,7 @@
     <form action="<?= url('admin/ders-ekle') ?>" method="POST" class="inline-form">
         <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
         <input type="hidden" name="section_id" value="<?= $section['id'] ?>">
-        <input type="text" name="title" placeholder="Ders Adi" required>
+        <input type="text" name="title" placeholder="Ders Adı" required>
         <input type="url" name="video_url" placeholder="Video URL">
         <input type="number" name="video_duration" placeholder="Sure (sn)" style="width:100px">
         <input type="number" name="sort_order" placeholder="Sira" value="0" style="width:80px">
@@ -136,7 +136,7 @@
     <?php if (!empty($section['lessons'])): ?>
     <table class="admin-table admin-table-sm">
         <thead>
-            <tr><th>Sira</th><th>Ders Adi</th><th>Sure</th><th>Önizleme</th></tr>
+            <tr><th>Sira</th><th>Ders Adı</th><th>Sure</th><th>Önizleme</th></tr>
         </thead>
         <tbody>
             <?php foreach ($section['lessons'] as $lesson): ?>

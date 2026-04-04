@@ -19,7 +19,7 @@
     </div>
 
     <div class="form-group">
-        <label>Kapak Gorseli</label>
+        <label>Kapak Görseli</label>
         <input type="file" name="thumbnail" accept="image/*">
     </div>
 

@@ -21,7 +21,7 @@
             <td><?= $post['views'] ?></td>
             <td>
                 <span class="status-badge <?= $post['is_published'] ? 'status-completed' : 'status-pending' ?>">
-                    <?= $post['is_published'] ? 'Yayinda' : 'Taslak' ?>
+                    <?= $post['is_published'] ? 'Yayında' : 'Taslak' ?>
                 </span>
             </td>
             <td><?= date('d.m.Y', strtotime($post['created_at'])) ?></td>

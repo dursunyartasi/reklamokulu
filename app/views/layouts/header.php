@@ -12,20 +12,35 @@
 </head>
 <body>
 
-<!-- Countdown Bar -->
-<?php if (!empty($settings['countdown_date'])): ?>
-<div id="countdown-bar">
+<!-- Top Bar -->
+<div class="top-bar">
     <div class="container">
-        <span class="countdown-text"><?= e($settings['countdown_text'] ?? 'Kampanya bitis tarihi:') ?></span>
-        <div class="countdown-timer" data-date="<?= e($settings['countdown_date']) ?>">
-            <span class="cd-days">0</span>g
-            <span class="cd-hours">0</span>s
-            <span class="cd-minutes">0</span>dk
-            <span class="cd-seconds">0</span>sn
+        <div class="top-bar-inner">
+            <form class="search-bar" action="<?= url('egitimler') ?>" method="GET">
+                <input type="text" name="q" placeholder="Egitim Arama" value="<?= e($_GET['q'] ?? '') ?>">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="top-bar-actions">
+                <a href="<?= url('sepet') ?>" class="top-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Sepet
+                    <?php $cartCount = count($_SESSION['cart'] ?? []); ?>
+                    <?php if ($cartCount > 0): ?>
+                        <span class="cart-badge"><?= $cartCount ?></span>
+                    <?php endif; ?>
+                </a>
+                <?php if (isLoggedIn()): ?>
+                    <a href="<?= url('panel') ?>" class="top-user-btn">
+                        <i class="fas fa-user"></i> <?= e(currentUser()['first_name'] ?? '') ?> <?= e(currentUser()['last_name'] ?? '') ?>
+                    </a>
+                <?php else: ?>
+                    <a href="<?= url('giris') ?>" class="top-user-btn">
+                        <i class="fas fa-user"></i> Giris Yap
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </div>
-<?php endif; ?>
 
 <!-- Header -->
 <header class="site-header">
@@ -36,32 +51,32 @@
             </a>
 
             <nav class="main-nav" id="mainNav">
-                <a href="<?= url('egitimler') ?>">Egitimler</a>
+                <div class="nav-item has-dropdown">
+                    <a href="<?= url('egitimler') ?>">Online Egitimler <i class="fas fa-chevron-down"></i></a>
+                </div>
                 <a href="<?= url('egitmenler') ?>">Egitmenler</a>
-                <a href="<?= url('kurumsal-egitimler') ?>">Kurumsal</a>
+                <a href="<?= url('kurumsal-egitimler') ?>">Kurumsal Egitim</a>
                 <a href="<?= url('blog') ?>">Blog</a>
                 <a href="<?= url('neden-biz') ?>">Neden Biz?</a>
                 <a href="<?= url('iletisim') ?>">Iletisim</a>
             </nav>
 
             <div class="header-actions">
-                <a href="<?= url('sepet') ?>" class="cart-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <?php $cartCount = count($_SESSION['cart'] ?? []); ?>
-                    <?php if ($cartCount > 0): ?>
-                        <span class="cart-badge"><?= $cartCount ?></span>
-                    <?php endif; ?>
-                </a>
-
                 <button class="theme-toggle" id="themeToggle" title="Tema Degistir">
                     <i class="fas fa-moon"></i>
                 </button>
 
                 <?php if (isLoggedIn()): ?>
+                    <a href="<?= url('panel') ?>" class="btn btn-panel">
+                        <?php if (isAdmin()): ?>
+                            Admin Paneli
+                        <?php else: ?>
+                            Ogrenci Paneli
+                        <?php endif; ?>
+                    </a>
                     <div class="user-menu">
                         <button class="user-menu-btn">
                             <i class="fas fa-user-circle"></i>
-                            <span><?= e(currentUser()['first_name'] ?? '') ?></span>
                         </button>
                         <div class="user-dropdown">
                             <?php if (isAdmin()): ?>
@@ -74,7 +89,7 @@
                         </div>
                     </div>
                 <?php else: ?>
-                    <a href="<?= url('giris') ?>" class="btn btn-primary btn-sm">Giris Yap</a>
+                    <a href="<?= url('kayit') ?>" class="btn btn-panel">Ucretsiz Kayit Ol</a>
                 <?php endif; ?>
 
                 <button class="mobile-toggle" id="mobileToggle">

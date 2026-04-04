@@ -2,7 +2,7 @@
     <div class="container">
         <div class="section-header">
             <h1>Online Eğitimler</h1>
-            <p>Tum eğitimlerimizi inceleyin ve kariyerinize yatirim yapin</p>
+            <p>Tum eğitimlerimizi inceleyin ve kariyerinize yatırım yapın</p>
         </div>
 
         <div class="courses-grid">

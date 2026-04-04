@@ -185,11 +185,11 @@
                     <div class="faq-list">
                         <div class="faq-item">
                             <button class="faq-question">Egitim seviyem dusuk, yine de katilabilir miyim?</button>
-                            <div class="faq-answer">Evet! Egitimimiz sifirdan ileri seviyeye kadar tasarlanmistir. Hicbir on bilgiye ihtiyac duymadan baslayabilirsiniz.</div>
+                            <div class="faq-answer">Evet! Egitimimiz sifirdan ileri seviyeye kadar tasarlanmıştır. Hiçbir on bilgiye ihtiyac duymadan başlayabilirsiniz.</div>
                         </div>
                         <div class="faq-item">
                             <button class="faq-question">Eğitimi ne kadar surede tamamlamaliyim?</button>
-                            <div class="faq-answer">Suresiz erisim hakkiniz var. Kendi hizinizda ilerlemeniz icin herhangi bir zaman siniri yoktur.</div>
+                            <div class="faq-answer">Süresiz erişim hakkınız var. Kendi hızınızda ilerlemeniz için herhangi bir zaman sınırı yoktur.</div>
                         </div>
                         <div class="faq-item">
                             <button class="faq-question">Taksit imkani var mi?</button>
@@ -258,7 +258,7 @@
                                 <span class="price-current"><?= formatPrice($rc['sale_price'] ?? $rc['price']) ?></span>
                             <?php endif; ?>
                         </div>
-                        <a href="<?= url('egitim/' . $rc['slug']) ?>" class="course-link">Satin Al <i class="fas fa-arrow-right"></i></a>
+                        <a href="<?= url('egitim/' . $rc['slug']) ?>" class="course-link">Satın Al <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@
             <div class="empty-state">
                 <i class="fas fa-shopping-cart fa-3x"></i>
                 <h3>Sepetiniz Boş</h3>
-                <p>Eğitimlerimize goz atin ve kariyerinize yatirim yapin.</p>
+                <p>Eğitimlerimize göz atin ve kariyerinize yatırım yapın.</p>
                 <a href="<?= url('egitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
             </div>
         <?php else: ?>

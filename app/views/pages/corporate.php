@@ -14,7 +14,7 @@
             <div class="advantage-card">
                 <div class="advantage-icon"><i class="fas fa-laptop"></i></div>
                 <h3>Online Eğitimler</h3>
-                <p>Uzaktan calisanlariniz icin online eğitim secenegi</p>
+                <p>Uzaktan çalışanlarınız için online eğitim seçeneği</p>
             </div>
             <div class="advantage-card">
                 <div class="advantage-icon"><i class="fas fa-puzzle-piece"></i></div>

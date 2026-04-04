@@ -26,7 +26,7 @@
             <?php else: ?>
                 <div class="video-placeholder-big">
                     <i class="fas fa-play-circle fa-4x"></i>
-                    <p>İzlemek icin sol taraftan bir ders secin</p>
+                    <p>İzlemek için sol taraftan bir ders seçin</p>
                 </div>
             <?php endif; ?>
         </div>

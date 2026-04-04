@@ -2,7 +2,7 @@
     <div class="container">
         <div class="section-header">
             <h1>İletişim</h1>
-            <p>Sorularınız icin bize ulaşın</p>
+            <p>Sorularınız için bize ulaşın</p>
         </div>
 
         <div class="contact-layout">

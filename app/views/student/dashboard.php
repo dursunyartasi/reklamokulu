@@ -112,7 +112,7 @@
                     <div class="empty-state">
                         <i class="fas fa-graduation-cap fa-3x"></i>
                         <h3>Henuz Egitim Almadiniz</h3>
-                        <p>Eğitimlerimize goz atin ve öğrenmeye başlayın.</p>
+                        <p>Eğitimlerimize göz atin ve öğrenmeye başlayın.</p>
                         <a href="<?= url('egitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
                     </div>
                 <?php endif; ?>

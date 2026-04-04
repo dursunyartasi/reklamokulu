@@ -6,7 +6,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <span class="logo-text footer-logo">Reklam<strong>Okulu</strong></span>
-                <p>Dijital pazarlama alaninda uzman eğitmenlerle, pratik odakli eğitimlerle kariyerinizi bir ust seviyeye tasiyin.</p>
+                <p>Dijital pazarlama alanında uzman eğitmenlerle, pratik odaklı eğitimlerle kariyerinizi bir üst seviyeye taşıyın.</p>
                 <div class="social-links">
                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -16,7 +16,7 @@
 
             <div class="footer-col">
                 <h4>Kurumsal</h4>
-                <a href="<?= url('egitimler') ?>">Egitimler</a>
+                <a href="<?= url('egitimler') ?>">Eğitimler</a>
                 <a href="<?= url('egitmenler') ?>">Eğitmenler</a>
                 <a href="<?= url('neden-biz') ?>">Neden Biz?</a>
                 <a href="<?= url('kurumsal-egitimler') ?>">Kurumsal Eğitim</a>
@@ -32,15 +32,15 @@
             <div class="footer-col">
                 <h4>İletişim</h4>
                 <p><i class="fas fa-envelope"></i> info@reklamokulu.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Istanbul, Türkiye</p>
+                <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
             </div>
         </div>
 
         <div class="footer-bottom">
             <div class="footer-legal">
-                <a href="<?= url('kullanim-kosullari') ?>">Kullanim Koşulları</a>
+                <a href="<?= url('kullanim-kosullari') ?>">Kullanım Koşulları</a>
                 <a href="<?= url('kvkk') ?>">KVKK</a>
-                <a href="<?= url('iptal-iade') ?>">Iptal & Iade</a>
+                <a href="<?= url('iptal-iade') ?>">İptal & İade</a>
             </div>
             <p>&copy; <?= date('Y') ?> Reklam Okulu. Tüm hakları saklıdır.</p>
         </div>

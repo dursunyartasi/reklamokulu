@@ -14,7 +14,7 @@
                     <div class="meeting-info-icon"><i class="fas fa-video"></i></div>
                     <div>
                         <h4>Egitmeninle Bire Bir Görüşme Hakkin Var!</h4>
-                        <p>Egitimlerine kayit oldugunda her eğitim icin 2x30 dakika ücretsiz bire bir görüşme hakkin bulunmaktadir. Asagidan görüşme talebi olusturabilirsin.</p>
+                        <p>Egitimlerine kayit olduğunda her eğitim için 2x30 dakika ücretsiz bire bir görüşme hakkın bulunmaktadır. Aşağıdan görüşme talebi oluşturabilirsin.</p>
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <label>Egitim Secin</label>
                             <select name="course_id" required>
-                                <option value="">Egitim seciniz...</option>
+                                <option value="">Egitim seçiniz...</option>
                                 <?php foreach ($enrolledCourses as $course): ?>
                                     <option value="<?= $course['id'] ?>"><?= e($course['title']) ?></option>
                                 <?php endforeach; ?>
@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label>Tercih Edilen Saat</label>
                             <select name="preferred_time" required>
-                                <option value="">Saat seciniz...</option>
+                                <option value="">Saat seçiniz...</option>
                                 <option value="10:00">10:00</option>
                                 <option value="11:00">11:00</option>
                                 <option value="13:00">13:00</option>
@@ -65,8 +65,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Görüşmek Istediginiz Konu</label>
-                        <textarea name="notes" rows="3" placeholder="Görüşmede konusmak istediginiz konulari kisaca yaziniz..."></textarea>
+                        <label>Görüşmek İstediğiniz Konu</label>
+                        <textarea name="notes" rows="3" placeholder="Görüşmede konusmak istediginiz konuları kisaca yaziniz..."></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-lg">
@@ -96,7 +96,7 @@
                         </div>
                         <span class="meeting-status meeting-status-<?= $meeting['status'] ?>">
                             <?php
-                            $statusMap = ['pending' => 'Beklemede', 'approved' => 'Onaylandi', 'completed' => 'Tamamlandı', 'cancelled' => 'Iptal'];
+                            $statusMap = ['pending' => 'Beklemede', 'approved' => 'Onaylandı', 'completed' => 'Tamamlandı', 'cancelled' => 'İptal'];
                             echo $statusMap[$meeting['status']] ?? $meeting['status'];
                             ?>
                         </span>
@@ -107,7 +107,7 @@
                     <div class="empty-state">
                         <i class="fas fa-comments fa-3x"></i>
                         <h3>Bire Bir Görüşme Icin Egitim Alin</h3>
-                        <p>Bir egitime kayit oldugunuzda bire bir görüşme hakki kazanirsiniz.</p>
+                        <p>Bir egitime kayit oldugunuzda bire bir görüşme hakkı kazanirsiniz.</p>
                         <a href="<?= url('egitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
                     </div>
                 <?php endif; ?>

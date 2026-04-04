@@ -22,7 +22,7 @@
             <td><?= $order['discount_amount'] > 0 ? formatPrice($order['discount_amount']) : '-' ?></td>
             <td>
                 <span class="status-badge status-<?= $order['status'] ?>">
-                    <?= $order['status'] === 'completed' ? 'Tamamlandı' : ($order['status'] === 'pending' ? 'Bekliyor' : ($order['status'] === 'failed' ? 'Başarısız' : 'Iade')) ?>
+                    <?= $order['status'] === 'completed' ? 'Tamamlandı' : ($order['status'] === 'pending' ? 'Bekliyor' : ($order['status'] === 'failed' ? 'Başarısız' : 'İade')) ?>
                 </span>
             </td>
             <td><?= date('d.m.Y H:i', strtotime($order['created_at'])) ?></td>

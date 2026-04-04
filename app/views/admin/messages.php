@@ -34,7 +34,7 @@
             <td><?= e($cr['email']) ?></td>
             <td>
                 <span class="status-badge status-<?= $cr['status'] ?>">
-                    <?= $cr['status'] === 'new' ? 'Yeni' : ($cr['status'] === 'contacted' ? 'İletişim Kuruldu' : ($cr['status'] === 'completed' ? 'Tamamlandı' : 'Iptal')) ?>
+                    <?= $cr['status'] === 'new' ? 'Yeni' : ($cr['status'] === 'contacted' ? 'İletişim Kuruldu' : ($cr['status'] === 'completed' ? 'Tamamlandı' : 'İptal')) ?>
                 </span>
             </td>
             <td><?= date('d.m.Y H:i', strtotime($cr['created_at'])) ?></td>

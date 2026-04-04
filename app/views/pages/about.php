@@ -10,7 +10,7 @@
                 <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                 <div>
                     <h3>Bire Bir Eğitmen Desteği</h3>
-                    <p>Her kurs icin 2x30 dakika ücretsiz bire bir görüşme hakki. Zoom uzerinden dogrudan eğitmeninizle birebir calisma firsati.</p>
+                    <p>Her kurs için 2x30 dakika ücretsiz bire bir görüşme hakkı. Zoom üzerinden doğrudan eğitmeninizle birebir çalışma fırsatı.</p>
                 </div>
             </div>
             <div class="feature-big">
@@ -31,7 +31,7 @@
                 <div class="feature-icon"><i class="fas fa-infinity"></i></div>
                 <div>
                     <h3>Ömür Boyu Erisim</h3>
-                    <p>Bir kez odeyin, sonsuza kadar erisim saglayin. Sure siniri yoktur.</p>
+                    <p>Bir kez odeyin, sonsuza kadar erişim saglayin. Sure sınırı yoktur.</p>
                 </div>
             </div>
             <div class="feature-big">
@@ -52,14 +52,14 @@
                 <div class="feature-icon"><i class="fas fa-laptop"></i></div>
                 <div>
                     <h3>Pratik Odaklı Egitim</h3>
-                    <p>Teknik eğitimler gercek reklam platformlari uzerinde canli gosterimlerle anlatilir.</p>
+                    <p>Teknik eğitimler gerçek reklam platformları üzerinde canli gösterimlerle anlatılır.</p>
                 </div>
             </div>
             <div class="feature-big">
                 <div class="feature-icon"><i class="fas fa-globe"></i></div>
                 <div>
                     <h3>Her Yerden Erişim</h3>
-                    <p>Bilgisayar, tablet ve telefon. Istediginiz cihazdan, istediginiz zaman eğitim alin.</p>
+                    <p>Bilgisayar, tablet ve telefon. İstediğiniz cihazdan, istediginiz zaman eğitim alin.</p>
                 </div>
             </div>
         </div>

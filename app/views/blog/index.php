@@ -2,7 +2,7 @@
     <div class="container">
         <div class="section-header">
             <h1>Blog</h1>
-            <p>Dijital pazarlama alaninda faydali yazilar</p>
+            <p>Dijital pazarlama alanında faydalı yazılar</p>
         </div>
 
         <div class="blog-grid">

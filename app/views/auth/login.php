@@ -2,7 +2,7 @@
     <div class="container">
         <div class="auth-card">
             <h1>Giriş Yap</h1>
-            <p>Öğrenci panelinize erisim icin giris yapin</p>
+            <p>Öğrenci panelinize erişim için giriş yapın</p>
 
             <form action="<?= url('giris') ?>" method="POST" class="auth-form">
                 <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">

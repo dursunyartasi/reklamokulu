@@ -9,7 +9,7 @@
                 <div class="faq-item">
                     <button class="faq-question active">Egitimler nasil veriliyor?</button>
                     <div class="faq-answer" style="display:block">
-                        <p>Tum eğitimler Reklam Okulu web sitesi uzerinden online olarak verilmektedir. Satin aldiginiz egitime ömür boyu erisim hakkiniz vardir.</p>
+                        <p>Tum eğitimler Reklam Okulu web sitesi üzerinden online olarak verilmektedir. Satın aldiginiz egitime ömür boyu erişim hakkınız vardır.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -27,7 +27,7 @@
                 <div class="faq-item">
                     <button class="faq-question">Eğitimlere ne kadar sure erisebilirim?</button>
                     <div class="faq-answer">
-                        <p>Satin aldiginiz tum eğitimlere ömür boyu erisim hakkiniz vardir. Sure siniri yoktur.</p>
+                        <p>Satın aldiginiz tum eğitimlere ömür boyu erişim hakkınız vardır. Sure sınırı yoktur.</p>
                     </div>
                 </div>
                 <div class="faq-item">

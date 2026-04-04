@@ -5,7 +5,7 @@
             <div class="hero-content">
                 <span class="hero-badge"><i class="fas fa-graduation-cap"></i> Dijital Pazarlama Akademisi</span>
                 <h1><?= e($settings['hero_title'] ?? 'Dijital Pazarlamayi En Iyi Sekilde Öğrenmeye Hazir Misiniz?') ?></h1>
-                <p><?= e($settings['hero_subtitle'] ?? 'Uzman eğitmenlerle, pratik odakli eğitimlerle kariyerinizi bir ust seviyeye tasiyin.') ?></p>
+                <p><?= e($settings['hero_subtitle'] ?? 'Uzman eğitmenlerle, pratik odaklı eğitimlerle kariyerinizi bir üst seviyeye taşıyın.') ?></p>
                 <div class="hero-features">
                     <span><i class="fas fa-check-circle"></i> Bire Bir Eğitmen Desteği</span>
                     <span><i class="fas fa-check-circle"></i> Ömür Boyu Erisim</span>
@@ -64,7 +64,7 @@
             <div class="advantage-card" style="background: #F3E5F5;">
                 <div class="advantage-icon" style="background: #E1BEE7; color: #7B1FA2;"><i class="fas fa-sync-alt"></i></div>
                 <h3>Surekli Güncellenen Egitimler</h3>
-                <p>Egitimler surekli güncellenir, ömür boyu en guncel haline erisim hakkin olur.</p>
+                <p>Egitimler surekli güncellenir, ömür boyu en guncel haline erişim hakkın olur.</p>
             </div>
             <div class="advantage-card" style="background: #E0F7FA;">
                 <div class="advantage-icon" style="background: #B2EBF2; color: #00838F;"><i class="fas fa-comments"></i></div>
@@ -74,7 +74,7 @@
             <div class="advantage-card" style="background: #FCE4EC;">
                 <div class="advantage-icon" style="background: #F8BBD0; color: #C2185B;"><i class="fas fa-infinity"></i></div>
                 <h3>Ömür Boyu Ücretsiz Erisim</h3>
-                <p>Bir egitime kaydoldugunuzda o eğitimin en guncel haline ve desteklere erisim hakkin olur.</p>
+                <p>Bir egitime kaydoldugunuzda o eğitimin en guncel haline ve desteklere erişim hakkın olur.</p>
             </div>
             <div class="advantage-card" style="background: #FFF8E1;">
                 <div class="advantage-icon" style="background: #FFECB3; color: #F57F17;"><i class="fas fa-certificate"></i></div>
@@ -132,7 +132,7 @@
                                 <span class="price-current"><?= formatPrice($course['sale_price'] ?? $course['price']) ?></span>
                             <?php endif; ?>
                         </div>
-                        <a href="<?= url('egitim/' . $course['slug']) ?>" class="course-link">Satin Al <i class="fas fa-arrow-right"></i></a>
+                        <a href="<?= url('egitim/' . $course['slug']) ?>" class="course-link">Satın Al <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -163,7 +163,7 @@
                         <span>Dijital Pazarlama Uzmanı</span>
                     </div>
                 </div>
-                <p>Reklam Okulu'nun eğitimlerini tamamladim. Eğitmenler konulari cok acik ve yalin bir sekilde anlatiyor. Kesinlikle tavsiye ederim.</p>
+                <p>Reklam Okulu'nun eğitimlerini tamamladım. Eğitmenler konuları çok açık ve yalın bir şekilde anlatıyor. Kesinlikle tavsiye ederim.</p>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
@@ -174,7 +174,7 @@
                         <span>E-Ticaret Uzmanı</span>
                     </div>
                 </div>
-                <p>Dijital pazarlama eğitimi aldim. Dersleri cok kapsamli ve bilgilendirici buldum. Canli destek vermesi cok onemli bir avantaj.</p>
+                <p>Dijital pazarlama eğitimi aldım. Dersleri çok kapsamlı ve bilgilendirici buldum. Canlı destek vermesi çok önemli bir avantaj.</p>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>

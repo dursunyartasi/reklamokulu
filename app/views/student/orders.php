@@ -27,7 +27,7 @@
                                 </div>
                                 <span class="order-status order-status-<?= $order['status'] ?>">
                                     <?php
-                                    $statusLabels = ['pending' => 'Beklemede', 'completed' => 'Tamamlandı', 'failed' => 'Basarisiz', 'refunded' => 'Iade Edildi'];
+                                    $statusLabels = ['pending' => 'Beklemede', 'completed' => 'Tamamlandı', 'failed' => 'Başarısız', 'refunded' => 'İade Edildi'];
                                     echo $statusLabels[$order['status']] ?? $order['status'];
                                     ?>
                                 </span>

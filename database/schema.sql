@@ -1,6 +1,7 @@
 -- Reklam Okulu Veritabani Semasi
-CREATE DATABASE IF NOT EXISTS reklamokulu CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE reklamokulu;
+-- Coolify'da veritabani adi "default" olarak olusturuldu
+-- Eger farkli bir isim kullaniyorsaniz asagidaki satiri guncelleyin
+USE `default`;
 
 -- Kullanicilar
 CREATE TABLE users (

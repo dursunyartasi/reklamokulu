@@ -8,13 +8,14 @@ class Database
     {
         if (self::$instance === null) {
             $host = $_ENV['DB_HOST'] ?? 'localhost';
-            $dbname = $_ENV['DB_NAME'] ?? 'reklamokulu';
+            $port = $_ENV['DB_PORT'] ?? '3306';
+            $dbname = $_ENV['DB_NAME'] ?? 'default';
             $user = $_ENV['DB_USER'] ?? 'root';
             $pass = $_ENV['DB_PASS'] ?? '';
 
             try {
                 self::$instance = new PDO(
-                    "mysql:host={$host};dbname={$dbname};charset=utf8mb4",
+                    "mysql:host={$host};port={$port};dbname={$dbname};charset=utf8mb4",
                     $user,
                     $pass,
                     [

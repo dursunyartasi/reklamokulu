@@ -1,4 +1,4 @@
-<?php $activePanel = 'siparisler'; ?>
+<?php $activePanel = 'siparişler'; ?>
 <?php require __DIR__ . '/_panel_header.php'; ?>
 
 <section class="section panel-section">
@@ -7,14 +7,14 @@
             <?php require __DIR__ . '/_sidebar.php'; ?>
 
             <div class="panel-main">
-                <h3 class="panel-title">Siparislerim</h3>
+                <h3 class="panel-title">Siparişlerim</h3>
 
                 <?php if (empty($orders)): ?>
                     <div class="empty-state">
                         <i class="fas fa-shopping-bag fa-3x"></i>
-                        <h3>Henuz Siparisiniz Yok</h3>
-                        <p>Egitim satin aldiginizda siparisleriniz burada gorunecektir.</p>
-                        <a href="<?= url('egitimler') ?>" class="btn btn-primary">Egitimleri Incele</a>
+                        <h3>Henuz Siparişiniz Yok</h3>
+                        <p>Egitim satin aldiginizda siparişleriniz burada gorunecektir.</p>
+                        <a href="<?= url('eğitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
                     </div>
                 <?php else: ?>
                     <div class="orders-list">
@@ -27,7 +27,7 @@
                                 </div>
                                 <span class="order-status order-status-<?= $order['status'] ?>">
                                     <?php
-                                    $statusLabels = ['pending' => 'Beklemede', 'completed' => 'Tamamlandi', 'failed' => 'Basarisiz', 'refunded' => 'Iade Edildi'];
+                                    $statusLabels = ['pending' => 'Beklemede', 'completed' => 'Tamamlandı', 'failed' => 'Basarisiz', 'refunded' => 'Iade Edildi'];
                                     echo $statusLabels[$order['status']] ?? $order['status'];
                                     ?>
                                 </span>

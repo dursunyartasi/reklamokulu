@@ -1,4 +1,4 @@
-<?php $activePanel = 'gorusme'; ?>
+<?php $activePanel = 'görüşme'; ?>
 <?php require __DIR__ . '/_panel_header.php'; ?>
 
 <section class="section panel-section">
@@ -7,19 +7,19 @@
             <?php require __DIR__ . '/_sidebar.php'; ?>
 
             <div class="panel-main">
-                <h3 class="panel-title">Bire Bir Gorusme</h3>
+                <h3 class="panel-title">Bire Bir Görüşme</h3>
 
                 <!-- New Meeting Request -->
                 <div class="meeting-info-card">
                     <div class="meeting-info-icon"><i class="fas fa-video"></i></div>
                     <div>
-                        <h4>Egitmeninle Bire Bir Gorusme Hakkin Var!</h4>
-                        <p>Egitimlerine kayit oldugunda her egitim icin 2x30 dakika ucretsiz bire bir gorusme hakkin bulunmaktadir. Asagidan gorusme talebi olusturabilirsin.</p>
+                        <h4>Egitmeninle Bire Bir Görüşme Hakkin Var!</h4>
+                        <p>Egitimlerine kayit oldugunda her eğitim icin 2x30 dakika ücretsiz bire bir görüşme hakkin bulunmaktadir. Asagidan görüşme talebi olusturabilirsin.</p>
                     </div>
                 </div>
 
                 <?php if (!empty($enrolledCourses)): ?>
-                <form action="<?= url('panel/gorusme-talebi') ?>" method="POST" class="meeting-form">
+                <form action="<?= url('panel/görüşme-talebi') ?>" method="POST" class="meeting-form">
                     <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
 
                     <div class="form-row-2">
@@ -56,7 +56,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Gorusme Suresi</label>
+                            <label>Görüşme Suresi</label>
                             <select name="duration" required>
                                 <option value="30">30 Dakika</option>
                                 <option value="60">60 Dakika</option>
@@ -65,19 +65,19 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Gorusmek Istediginiz Konu</label>
-                        <textarea name="notes" rows="3" placeholder="Gorusmede konusmak istediginiz konulari kisaca yaziniz..."></textarea>
+                        <label>Görüşmek Istediginiz Konu</label>
+                        <textarea name="notes" rows="3" placeholder="Görüşmede konusmak istediginiz konulari kisaca yaziniz..."></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-lg">
-                        <i class="fas fa-calendar-plus"></i> Gorusme Talebi Olustur
+                        <i class="fas fa-calendar-plus"></i> Görüşme Talebi Olustur
                     </button>
                 </form>
                 <?php endif; ?>
 
                 <!-- Previous Meetings -->
                 <?php if (!empty($meetings)): ?>
-                <h3 class="panel-title" style="margin-top: 2.5rem;">Gecmis Gorusmelerim</h3>
+                <h3 class="panel-title" style="margin-top: 2.5rem;">Gecmis Görüşmelerim</h3>
                 <div class="meetings-list">
                     <?php foreach ($meetings as $meeting): ?>
                     <div class="meeting-card">
@@ -96,7 +96,7 @@
                         </div>
                         <span class="meeting-status meeting-status-<?= $meeting['status'] ?>">
                             <?php
-                            $statusMap = ['pending' => 'Beklemede', 'approved' => 'Onaylandi', 'completed' => 'Tamamlandi', 'cancelled' => 'Iptal'];
+                            $statusMap = ['pending' => 'Beklemede', 'approved' => 'Onaylandi', 'completed' => 'Tamamlandı', 'cancelled' => 'Iptal'];
                             echo $statusMap[$meeting['status']] ?? $meeting['status'];
                             ?>
                         </span>
@@ -106,9 +106,9 @@
                 <?php elseif (empty($enrolledCourses)): ?>
                     <div class="empty-state">
                         <i class="fas fa-comments fa-3x"></i>
-                        <h3>Bire Bir Gorusme Icin Egitim Alin</h3>
-                        <p>Bir egitime kayit oldugunuzda bire bir gorusme hakki kazanirsiniz.</p>
-                        <a href="<?= url('egitimler') ?>" class="btn btn-primary">Egitimleri Incele</a>
+                        <h3>Bire Bir Görüşme Icin Egitim Alin</h3>
+                        <p>Bir egitime kayit oldugunuzda bire bir görüşme hakki kazanirsiniz.</p>
+                        <a href="<?= url('eğitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
                     </div>
                 <?php endif; ?>
             </div>

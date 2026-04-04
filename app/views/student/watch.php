@@ -14,7 +14,7 @@
     <!-- Video Player -->
     <div class="watch-main">
         <div class="watch-header">
-            <a href="<?= url('panel') ?>" class="btn btn-sm btn-outline"><i class="fas fa-arrow-left"></i> Panele Don</a>
+            <a href="<?= url('panel') ?>" class="btn btn-sm btn-outline"><i class="fas fa-arrow-left"></i> Panele Dön</a>
             <h2><?= e($course['title']) ?></h2>
         </div>
 
@@ -26,7 +26,7 @@
             <?php else: ?>
                 <div class="video-placeholder-big">
                     <i class="fas fa-play-circle fa-4x"></i>
-                    <p>Izlemek icin sol taraftan bir ders secin</p>
+                    <p>İzlemek icin sol taraftan bir ders secin</p>
                 </div>
             <?php endif; ?>
         </div>
@@ -54,11 +54,11 @@
     <!-- Sidebar - Ders Listesi -->
     <aside class="watch-sidebar">
         <div class="watch-sidebar-header">
-            <h3>Kurs Icerigi</h3>
+            <h3>Kurs İçeriği</h3>
             <div class="progress-bar">
                 <div class="progress-fill" style="width: <?= $progress['percentage'] ?>%"></div>
             </div>
-            <span class="progress-text-sm">%<?= $progress['percentage'] ?> tamamlandi</span>
+            <span class="progress-text-sm">%<?= $progress['percentage'] ?> tamamlandı</span>
         </div>
 
         <div class="watch-curriculum">

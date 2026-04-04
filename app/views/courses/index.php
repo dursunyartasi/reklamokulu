@@ -1,13 +1,13 @@
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <h1>Online Egitimler</h1>
-            <p>Tum egitimlerimizi inceleyin ve kariyerinize yatirim yapin</p>
+            <h1>Online Eğitimler</h1>
+            <p>Tum eğitimlerimizi inceleyin ve kariyerinize yatirim yapin</p>
         </div>
 
         <div class="courses-grid">
             <?php if (empty($courses)): ?>
-                <p class="text-center">Henuz egitim eklenmemis.</p>
+                <p class="text-center">Henuz eğitim eklenmemis.</p>
             <?php endif; ?>
 
             <?php foreach ($courses as $course): ?>
@@ -21,9 +21,9 @@
                         </div>
                     <?php endif; ?>
                     <?php if ($course['is_free']): ?>
-                        <span class="badge badge-free">Ucretsiz</span>
+                        <span class="badge badge-free">Ücretsiz</span>
                     <?php elseif ($course['sale_price']): ?>
-                        <span class="badge badge-sale">Indirim</span>
+                        <span class="badge badge-sale">İndirim</span>
                     <?php endif; ?>
                 </div>
                 <div class="course-info">
@@ -34,12 +34,12 @@
                             <span><i class="fas fa-clock"></i> <?= e($course['duration']) ?></span>
                         <?php endif; ?>
                         <?php if ($course['total_students'] > 0): ?>
-                            <span><i class="fas fa-users"></i> <?= $course['total_students'] ?> ogrenci</span>
+                            <span><i class="fas fa-users"></i> <?= $course['total_students'] ?> öğrenci</span>
                         <?php endif; ?>
                     </div>
                     <div class="course-price">
                         <?php if ($course['is_free']): ?>
-                            <span class="price-current">Ucretsiz</span>
+                            <span class="price-current">Ücretsiz</span>
                         <?php else: ?>
                             <?php if ($course['sale_price']): ?>
                                 <span class="price-old"><?= formatPrice($course['price']) ?></span>

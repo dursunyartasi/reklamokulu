@@ -9,10 +9,10 @@
                 <h2><?= e(currentUser()['first_name'] ?? '') ?> <?= e(currentUser()['last_name'] ?? '') ?></h2>
                 <div class="panel-user-stats">
                     <span><i class="fas fa-book"></i> <?= count($myCourses) ?> Alinan Egitim</span>
-                    <span><i class="fas fa-certificate"></i> <?= $certificateCount ?? 0 ?> Katilim Belgesi</span>
+                    <span><i class="fas fa-certificate"></i> <?= $certificateCount ?? 0 ?> Katılım Belgesi</span>
                 </div>
             </div>
-            <a href="<?= url('egitimler') ?>" class="btn btn-panel-cta">Tum Egitimler <i class="fas fa-arrow-right"></i></a>
+            <a href="<?= url('eğitimler') ?>" class="btn btn-panel-cta">Tüm Eğitimler <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </section>
@@ -23,7 +23,7 @@
             <!-- Sidebar -->
             <aside class="panel-sidebar">
                 <div class="panel-sidebar-greeting">
-                    <small><?= strtoupper(e(currentUser()['first_name'] ?? '')) ?> <?= strtoupper(e(currentUser()['last_name'] ?? '')) ?> HOS GELDIN!</small>
+                    <small><?= strtoupper(e(currentUser()['first_name'] ?? '')) ?> <?= strtoupper(e(currentUser()['last_name'] ?? '')) ?> HOŞ GELDİN!</small>
                 </div>
                 <nav class="panel-nav">
                     <a href="<?= url('panel') ?>" class="panel-nav-item active">
@@ -36,13 +36,13 @@
                         <i class="fas fa-book-open"></i> Egitimler
                     </a>
                     <a href="<?= url('panel/sertifikalar') ?>" class="panel-nav-item">
-                        <i class="fas fa-certificate"></i> Katilim Belgeleri
+                        <i class="fas fa-certificate"></i> Katılım Belgeleri
                     </a>
-                    <a href="<?= url('panel/siparisler') ?>" class="panel-nav-item">
-                        <i class="fas fa-shopping-bag"></i> Siparisler
+                    <a href="<?= url('panel/siparişler') ?>" class="panel-nav-item">
+                        <i class="fas fa-shopping-bag"></i> Siparişler
                     </a>
-                    <a href="<?= url('panel/gorusme') ?>" class="panel-nav-item">
-                        <i class="fas fa-comments"></i> Bire Bir Gorusme
+                    <a href="<?= url('panel/görüşme') ?>" class="panel-nav-item">
+                        <i class="fas fa-comments"></i> Bire Bir Görüşme
                     </a>
                 </nav>
                 <div class="panel-nav-divider">DIGER</div>
@@ -112,8 +112,8 @@
                     <div class="empty-state">
                         <i class="fas fa-graduation-cap fa-3x"></i>
                         <h3>Henuz Egitim Almadiniz</h3>
-                        <p>Egitimlerimize goz atin ve ogrenmeye baslayin.</p>
-                        <a href="<?= url('egitimler') ?>" class="btn btn-primary">Egitimleri Incele</a>
+                        <p>Eğitimlerimize goz atin ve öğrenmeye başlayın.</p>
+                        <a href="<?= url('eğitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
                     </div>
                 <?php endif; ?>
             </div>

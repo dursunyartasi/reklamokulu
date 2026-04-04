@@ -19,7 +19,7 @@
         <div class="stat-icon bg-orange"><i class="fas fa-shopping-bag"></i></div>
         <div>
             <h3><?= $stats['total_orders'] ?></h3>
-            <p>Toplam Siparis</p>
+            <p>Toplam Sipariş</p>
         </div>
     </div>
     <div class="admin-stat-card">
@@ -32,11 +32,11 @@
 </div>
 
 <div class="admin-section">
-    <h2>Son Siparisler</h2>
+    <h2>Son Siparişler</h2>
     <table class="admin-table">
         <thead>
             <tr>
-                <th>Siparis No</th>
+                <th>Sipariş No</th>
                 <th>Musteri</th>
                 <th>Tutar</th>
                 <th>Durum</th>
@@ -51,14 +51,14 @@
                 <td><?= formatPrice($order['total_amount']) ?></td>
                 <td>
                     <span class="status-badge status-<?= $order['status'] ?>">
-                        <?= $order['status'] === 'completed' ? 'Tamamlandi' : ($order['status'] === 'pending' ? 'Bekliyor' : ($order['status'] === 'failed' ? 'Basarisiz' : 'Iade')) ?>
+                        <?= $order['status'] === 'completed' ? 'Tamamlandı' : ($order['status'] === 'pending' ? 'Bekliyor' : ($order['status'] === 'failed' ? 'Basarisiz' : 'Iade')) ?>
                     </span>
                 </td>
                 <td><?= date('d.m.Y H:i', strtotime($order['created_at'])) ?></td>
             </tr>
             <?php endforeach; ?>
             <?php if (empty($recentOrders)): ?>
-            <tr><td colspan="5" class="text-center">Henuz siparis yok</td></tr>
+            <tr><td colspan="5" class="text-center">Henuz sipariş yok</td></tr>
             <?php endif; ?>
         </tbody>
     </table>

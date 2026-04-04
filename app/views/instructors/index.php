@@ -1,8 +1,8 @@
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <h1>Egitmenlerimiz</h1>
-            <p>Alaninda uzman egitmenlerle tanisin</p>
+            <h1>Eğitmenlerimiz</h1>
+            <p>Alaninda uzman eğitmenlerle tanisin</p>
         </div>
 
         <div class="instructors-grid">
@@ -30,7 +30,7 @@
                         <a href="<?= e($inst['instagram']) ?>" target="_blank"><i class="fab fa-instagram"></i></a>
                     <?php endif; ?>
                 </div>
-                <a href="<?= url('egitmen/' . slugify($inst['first_name'] . ' ' . $inst['last_name'])) ?>" class="btn btn-outline btn-sm">Profili Gor</a>
+                <a href="<?= url('eğitmen/' . slugify($inst['first_name'] . ' ' . $inst['last_name'])) ?>" class="btn btn-outline btn-sm">Profili Gor</a>
             </div>
             <?php endforeach; ?>
         </div>

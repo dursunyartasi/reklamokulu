@@ -1,6 +1,6 @@
 <h1>Mesajlar</h1>
 
-<h2>Iletisim Mesajlari</h2>
+<h2>İletişim Mesajlari</h2>
 <table class="admin-table">
     <thead>
         <tr><th>Ad</th><th>E-Posta</th><th>Konu</th><th>Mesaj</th><th>Tarih</th></tr>
@@ -34,7 +34,7 @@
             <td><?= e($cr['email']) ?></td>
             <td>
                 <span class="status-badge status-<?= $cr['status'] ?>">
-                    <?= $cr['status'] === 'new' ? 'Yeni' : ($cr['status'] === 'contacted' ? 'Iletisim Kuruldu' : ($cr['status'] === 'completed' ? 'Tamamlandi' : 'Iptal')) ?>
+                    <?= $cr['status'] === 'new' ? 'Yeni' : ($cr['status'] === 'contacted' ? 'İletişim Kuruldu' : ($cr['status'] === 'completed' ? 'Tamamlandı' : 'Iptal')) ?>
                 </span>
             </td>
             <td><?= date('d.m.Y H:i', strtotime($cr['created_at'])) ?></td>

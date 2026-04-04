@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group">
-        <label>Icerik</label>
+        <label>İçerik</label>
         <textarea name="content" rows="15"></textarea>
     </div>
 

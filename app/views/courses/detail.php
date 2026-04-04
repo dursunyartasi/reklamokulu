@@ -2,7 +2,7 @@
 <div class="breadcrumb-bar">
     <div class="container">
         <a href="<?= url('') ?>">Anasayfa</a> <i class="fas fa-chevron-right"></i>
-        <a href="<?= url('egitimler') ?>">Egitimlerimiz</a> <i class="fas fa-chevron-right"></i>
+        <a href="<?= url('eğitimler') ?>">Eğitimlerimiz</a> <i class="fas fa-chevron-right"></i>
         <span><?= e($course['title']) ?></span>
     </div>
 </div>
@@ -18,16 +18,16 @@
                 <?php endif; ?>
 
                 <div class="course-hero-badges">
-                    <span class="hero-feature-badge"><i class="fas fa-bullseye"></i> Bire Bir Egitmen Destegi</span>
-                    <span class="hero-feature-badge"><i class="fas fa-comments"></i> Soru Cevap Gruplari</span>
-                    <span class="hero-feature-badge"><i class="fas fa-video"></i> Canli Yayinlar</span>
+                    <span class="hero-feature-badge"><i class="fas fa-bullseye"></i> Bire Bir Eğitmen Desteği</span>
+                    <span class="hero-feature-badge"><i class="fas fa-comments"></i> Soru Cevap Grupları</span>
+                    <span class="hero-feature-badge"><i class="fas fa-video"></i> Canlı Yayınlar</span>
                 </div>
 
                 <div class="course-meta-hero">
-                    <span><i class="fas fa-heart"></i> Canli ve Bire Bir Egitmen Destegi (2 x 30 dk ucretsiz)</span>
-                    <span><i class="fas fa-comment-dots"></i> Canli Yayinlara Katilim Hakki</span>
+                    <span><i class="fas fa-heart"></i> Canli ve Bire Bir Eğitmen Desteği (2 x 30 dk ücretsiz)</span>
+                    <span><i class="fas fa-comment-dots"></i> Canlı Yayınlara Katilim Hakki</span>
                     <span><i class="fas fa-users"></i> Telegram Grubu Soru & Cevap Destegi</span>
-                    <span><i class="fas fa-certificate"></i> Katilim Belgesi</span>
+                    <span><i class="fas fa-certificate"></i> Katılım Belgesi</span>
                     <?php if ($course['category_name']): ?>
                         <span><i class="fas fa-folder"></i> Kategori: <?= e($course['category_name']) ?></span>
                     <?php endif; ?>
@@ -48,7 +48,7 @@
                 <div class="price-card-body">
                     <div class="course-price-big">
                         <?php if ($course['is_free']): ?>
-                            <span class="price-current-big">Ucretsiz</span>
+                            <span class="price-current-big">Ücretsiz</span>
                         <?php else: ?>
                             <div class="price-row-with-badge">
                                 <?php if ($course['sale_price']): ?>
@@ -62,20 +62,20 @@
 
                     <?php if ($isEnrolled): ?>
                         <a href="<?= url('panel/kurs/' . $course['slug']) ?>" class="btn btn-cta btn-block btn-lg">
-                            <i class="fas fa-play"></i> Izlemeye Basla
+                            <i class="fas fa-play"></i> İzlemeye Basla
                         </a>
                     <?php else: ?>
                         <form action="<?= url('sepete-ekle/' . $course['slug']) ?>" method="POST">
                             <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
                             <button type="submit" class="btn btn-cta btn-block btn-lg">
-                                Izlemeye Basla
+                                İzlemeye Basla
                             </button>
                         </form>
                     <?php endif; ?>
 
                     <?php if (!$course['is_free']): ?>
-                    <p class="installment-info">Pesin Fiyatina 3 Taksit</p>
-                    <p class="installment-info"><i class="fas fa-infinity"></i> Omur Boyu Ucretsiz Erisim</p>
+                    <p class="installment-info">Peşin Fiyatına 3 Taksit</p>
+                    <p class="installment-info"><i class="fas fa-infinity"></i> Ömür Boyu Ücretsiz Erisim</p>
                     <?php endif; ?>
 
                     <ul class="price-card-features">
@@ -86,7 +86,7 @@
                         <li><span>Sure</span><strong><?= e($course['duration']) ?></strong></li>
                         <?php endif; ?>
                         <?php if ($course['last_updated']): ?>
-                        <li><span>Son Guncelleme</span><strong><?= date('d M Y', strtotime($course['last_updated'])) ?></strong></li>
+                        <li><span>Son Güncelleme</span><strong><?= date('d M Y', strtotime($course['last_updated'])) ?></strong></li>
                         <?php endif; ?>
                         <li><span>Egitmen</span><strong><?= e($course['instructor_first_name'] . ' ' . $course['instructor_last_name']) ?></strong></li>
                     </ul>
@@ -103,44 +103,44 @@
             <div class="course-detail-main">
                 <div class="tabs">
                     <button class="tab-btn active" data-tab="advantages">Avantajlar</button>
-                    <button class="tab-btn" data-tab="curriculum">Kurs Icerigi</button>
-                    <button class="tab-btn" data-tab="faq">Sikca Sorulan Sorular</button>
+                    <button class="tab-btn" data-tab="curriculum">Kurs İçeriği</button>
+                    <button class="tab-btn" data-tab="faq">Sıkça Sorulan Sorular</button>
                     <button class="tab-btn" data-tab="instructor">Egitmen</button>
                 </div>
 
                 <!-- Advantages Tab -->
                 <div class="tab-content active" id="tab-advantages">
-                    <h3>Bu Egitimde Neler Ogreneceksin?</h3>
+                    <h3>Bu Egitimde Neler Öğreneceksin?</h3>
                     <div class="course-description">
                         <?= $course['description'] ?>
                     </div>
 
-                    <h3 style="margin-top: 2rem;">Egitimin Avantajlari</h3>
+                    <h3 style="margin-top: 2rem;">Eğitimin Avantajları</h3>
                     <div class="advantage-list">
                         <div class="advantage-list-item">
                             <i class="fas fa-check-circle"></i>
-                            <p>Bire bir egitmen destegi ile diledigin zaman canli gorusme yapabilirsin.</p>
+                            <p>Bire bir eğitmen destegi ile diledigin zaman canli görüşme yapabilirsin.</p>
                         </div>
                         <div class="advantage-list-item">
                             <i class="fas fa-check-circle"></i>
-                            <p>Her hafta duzenlenen canli yayinlara omur boyu ucretsiz katilabilirsin.</p>
+                            <p>Her hafta duzenlenen canlı yayınlara ömür boyu ücretsiz katilabilirsin.</p>
                         </div>
                         <div class="advantage-list-item">
                             <i class="fas fa-check-circle"></i>
-                            <p>Egitim surekli guncellenir, her zaman en guncel bilgilere erisirsin.</p>
+                            <p>Egitim surekli güncellenir, her zaman en guncel bilgilere erisirsin.</p>
                         </div>
                         <div class="advantage-list-item">
                             <i class="fas fa-check-circle"></i>
-                            <p>Egitimi basariyla tamamladiginda egitmen imzali katilim belgesine sahip olacaksin.</p>
+                            <p>Eğitimi başarıyla tamamladiginda eğitmen imzali katilim belgesine sahip olacaksin.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Curriculum Tab -->
                 <div class="tab-content" id="tab-curriculum">
-                    <h3>Kurs Icerigi</h3>
+                    <h3>Kurs İçeriği</h3>
                     <?php if (empty($sections)): ?>
-                        <p>Mufredat henuz eklenmemis.</p>
+                        <p>Müfredat henüz eklenmemis.</p>
                     <?php else: ?>
                         <div class="curriculum-list">
                             <?php foreach ($sections as $index => $section): ?>
@@ -159,7 +159,7 @@
                                             <i class="fas fa-play-circle"></i>
                                             <?= e($lesson['title']) ?>
                                             <?php if ($lesson['is_free_preview']): ?>
-                                                <span class="badge badge-free-sm">Onizleme</span>
+                                                <span class="badge badge-free-sm">Önizleme</span>
                                             <?php endif; ?>
                                         </span>
                                         <span class="lesson-right">
@@ -181,23 +181,23 @@
 
                 <!-- FAQ Tab -->
                 <div class="tab-content" id="tab-faq">
-                    <h3>Sikca Sorulan Sorular</h3>
+                    <h3>Sıkça Sorulan Sorular</h3>
                     <div class="faq-list">
                         <div class="faq-item">
                             <button class="faq-question">Egitim seviyem dusuk, yine de katilabilir miyim?</button>
                             <div class="faq-answer">Evet! Egitimimiz sifirdan ileri seviyeye kadar tasarlanmistir. Hicbir on bilgiye ihtiyac duymadan baslayabilirsiniz.</div>
                         </div>
                         <div class="faq-item">
-                            <button class="faq-question">Egitimi ne kadar surede tamamlamaliyim?</button>
+                            <button class="faq-question">Eğitimi ne kadar surede tamamlamaliyim?</button>
                             <div class="faq-answer">Suresiz erisim hakkiniz var. Kendi hizinizda ilerlemeniz icin herhangi bir zaman siniri yoktur.</div>
                         </div>
                         <div class="faq-item">
                             <button class="faq-question">Taksit imkani var mi?</button>
-                            <div class="faq-answer">Evet, pesin fiyatina 3 taksit imkanimiz mevcuttur. Kredi karti ile taksitli odeme yapabilirsiniz.</div>
+                            <div class="faq-answer">Evet, peşin fiyatına 3 taksit imkanimiz mevcuttur. Kredi karti ile taksitli ödeme yapabilirsiniz.</div>
                         </div>
                         <div class="faq-item">
                             <button class="faq-question">Sertifika veriliyor mu?</button>
-                            <div class="faq-answer">Evet, egitimi basariyla tamamladiginizda egitmen imzali katilim belgesi tarafiniza iletilmektedir.</div>
+                            <div class="faq-answer">Evet, eğitimi başarıyla tamamladiginizda eğitmen imzali katilim belgesi tarafiniza iletilmektedir.</div>
                         </div>
                     </div>
                 </div>
@@ -233,7 +233,7 @@
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <h2>Benzer Egitimler</h2>
+            <h2>Benzer Eğitimler</h2>
         </div>
         <div class="courses-grid courses-grid-4">
             <?php foreach ($relatedCourses as $rc): ?>
@@ -250,7 +250,7 @@
                     <div class="course-price-row">
                         <div class="course-price">
                             <?php if ($rc['is_free']): ?>
-                                <span class="price-current">Ucretsiz</span>
+                                <span class="price-current">Ücretsiz</span>
                             <?php else: ?>
                                 <?php if ($rc['sale_price']): ?>
                                     <span class="price-old"><?= formatPrice($rc['price']) ?></span>

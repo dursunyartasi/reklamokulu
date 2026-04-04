@@ -7,13 +7,13 @@
             <?php require __DIR__ . '/_sidebar.php'; ?>
 
             <div class="panel-main">
-                <h3 class="panel-title">Katilim Belgeleri</h3>
+                <h3 class="panel-title">Katılım Belgeleri</h3>
 
                 <?php if (empty($certificates)): ?>
                     <div class="empty-state">
                         <i class="fas fa-certificate fa-3x"></i>
-                        <h3>Henuz Sertifikaniz Yok</h3>
-                        <p>Bir egitimi tamamladiginizda sertifikaniz burada gorunecektir.</p>
+                        <h3>Henuz Sertifikanız Yok</h3>
+                        <p>Bir eğitimi tamamladiginizda sertifikaniz burada gorunecektir.</p>
                     </div>
                 <?php else: ?>
                     <div class="certificates-grid">

@@ -5,9 +5,9 @@
         <?php if (empty($cart)): ?>
             <div class="empty-state">
                 <i class="fas fa-shopping-cart fa-3x"></i>
-                <h3>Sepetiniz Bos</h3>
-                <p>Egitimlerimize goz atin ve kariyerinize yatirim yapin.</p>
-                <a href="<?= url('egitimler') ?>" class="btn btn-primary">Egitimleri Incele</a>
+                <h3>Sepetiniz Boş</h3>
+                <p>Eğitimlerimize goz atin ve kariyerinize yatirim yapin.</p>
+                <a href="<?= url('eğitimler') ?>" class="btn btn-primary">Eğitimleri İncele</a>
             </div>
         <?php else: ?>
             <div class="cart-layout">
@@ -33,12 +33,12 @@
                 </div>
 
                 <div class="cart-summary">
-                    <h3>Siparis Ozeti</h3>
+                    <h3>Sipariş Özeti</h3>
                     <div class="summary-row">
                         <span>Toplam</span>
                         <span class="summary-total"><?= formatPrice($total) ?></span>
                     </div>
-                    <a href="<?= url('odeme') ?>" class="btn btn-primary btn-block btn-lg">Odemeye Gec</a>
+                    <a href="<?= url('ödeme') ?>" class="btn btn-primary btn-block btn-lg">Ödemeye Gec</a>
                 </div>
             </div>
         <?php endif; ?>

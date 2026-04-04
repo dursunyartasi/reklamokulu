@@ -19,7 +19,7 @@
             <td><?= e($user['email']) ?></td>
             <td>
                 <span class="role-badge role-<?= $user['role'] ?>">
-                    <?= $user['role'] === 'admin' ? 'Admin' : ($user['role'] === 'instructor' ? 'Egitmen' : 'Ogrenci') ?>
+                    <?= $user['role'] === 'admin' ? 'Admin' : ($user['role'] === 'instructor' ? 'Egitmen' : 'Öğrenci') ?>
                 </span>
             </td>
             <td><?= date('d.m.Y', strtotime($user['created_at'])) ?></td>

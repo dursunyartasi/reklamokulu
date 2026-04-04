@@ -1,10 +1,10 @@
 <section class="auth-section">
     <div class="container">
         <div class="auth-card">
-            <h1>Sifremi Unuttum</h1>
-            <p>E-posta adresinizi girin, sifre sifirlama baglantisi gonderelim</p>
+            <h1>Şifremi Unuttum</h1>
+            <p>E-posta adresinizi girin, şifre sifirlama baglantisi gonderelim</p>
 
-            <form action="<?= url('sifremi-unuttum') ?>" method="POST" class="auth-form">
+            <form action="<?= url('şifremi-unuttum') ?>" method="POST" class="auth-form">
                 <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
 
                 <div class="form-group">
@@ -12,11 +12,11 @@
                     <input type="email" id="email" name="email" required placeholder="ornek@email.com">
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block btn-lg">Sifirlama Baglantisi Gonder</button>
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Sıfırlama Baglantisi Gönder</button>
             </form>
 
             <div class="auth-footer">
-                <p><a href="<?= url('giris') ?>">Giris sayfasina don</a></p>
+                <p><a href="<?= url('giris') ?>">Giriş sayfasına dön</a></p>
             </div>
         </div>
     </div>

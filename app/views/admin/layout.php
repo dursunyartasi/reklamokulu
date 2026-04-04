@@ -28,8 +28,8 @@
             <a href="<?= url('admin/kullanicilar') ?>" class="<?= ($view ?? '') === 'users' ? 'active' : '' ?>">
                 <i class="fas fa-users"></i> Kullanicilar
             </a>
-            <a href="<?= url('admin/siparisler') ?>" class="<?= ($view ?? '') === 'orders' ? 'active' : '' ?>">
-                <i class="fas fa-shopping-bag"></i> Siparisler
+            <a href="<?= url('admin/siparişler') ?>" class="<?= ($view ?? '') === 'orders' ? 'active' : '' ?>">
+                <i class="fas fa-shopping-bag"></i> Siparişler
             </a>
             <a href="<?= url('admin/blog') ?>" class="<?= ($view ?? '') === 'blog-posts' || ($view ?? '') === 'blog-form' ? 'active' : '' ?>">
                 <i class="fas fa-newspaper"></i> Blog
@@ -42,7 +42,7 @@
             </a>
             <hr>
             <a href="<?= url('') ?>" target="_blank"><i class="fas fa-external-link-alt"></i> Siteyi Gor</a>
-            <a href="<?= url('cikis') ?>"><i class="fas fa-sign-out-alt"></i> Cikis</a>
+            <a href="<?= url('cikis') ?>"><i class="fas fa-sign-out-alt"></i> Çıkış</a>
         </nav>
     </aside>
 

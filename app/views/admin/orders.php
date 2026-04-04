@@ -1,13 +1,13 @@
-<h1>Siparisler</h1>
+<h1>Siparişler</h1>
 
 <table class="admin-table">
     <thead>
         <tr>
-            <th>Siparis No</th>
+            <th>Sipariş No</th>
             <th>Musteri</th>
             <th>E-Posta</th>
             <th>Tutar</th>
-            <th>Indirim</th>
+            <th>İndirim</th>
             <th>Durum</th>
             <th>Tarih</th>
         </tr>
@@ -22,14 +22,14 @@
             <td><?= $order['discount_amount'] > 0 ? formatPrice($order['discount_amount']) : '-' ?></td>
             <td>
                 <span class="status-badge status-<?= $order['status'] ?>">
-                    <?= $order['status'] === 'completed' ? 'Tamamlandi' : ($order['status'] === 'pending' ? 'Bekliyor' : ($order['status'] === 'failed' ? 'Basarisiz' : 'Iade')) ?>
+                    <?= $order['status'] === 'completed' ? 'Tamamlandı' : ($order['status'] === 'pending' ? 'Bekliyor' : ($order['status'] === 'failed' ? 'Basarisiz' : 'Iade')) ?>
                 </span>
             </td>
             <td><?= date('d.m.Y H:i', strtotime($order['created_at'])) ?></td>
         </tr>
         <?php endforeach; ?>
         <?php if (empty($orders)): ?>
-        <tr><td colspan="7" class="text-center">Henuz siparis yok</td></tr>
+        <tr><td colspan="7" class="text-center">Henuz sipariş yok</td></tr>
         <?php endif; ?>
     </tbody>
 </table>

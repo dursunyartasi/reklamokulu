@@ -1,6 +1,6 @@
 <h1><?= isset($course) ? 'Kurs Duzenle' : 'Yeni Kurs' ?></h1>
 
-<form action="<?= isset($course) ? url('admin/kurslar/' . $course['id'] . '/guncelle') : url('admin/kurslar/kaydet') ?>"
+<form action="<?= isset($course) ? url('admin/kurslar/' . $course['id'] . '/güncelle') : url('admin/kurslar/kaydet') ?>"
       method="POST" enctype="multipart/form-data" class="admin-form">
     <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
 
@@ -60,7 +60,7 @@
             <input type="number" name="price" step="0.01" value="<?= $course['price'] ?? '0' ?>">
         </div>
         <div class="form-group">
-            <label>Indirimli Fiyat (TL)</label>
+            <label>İndirimli Fiyat (TL)</label>
             <input type="number" name="sale_price" step="0.01" value="<?= $course['sale_price'] ?? '' ?>">
         </div>
     </div>
@@ -94,17 +94,17 @@
         <div class="form-group">
             <label class="checkbox-label">
                 <input type="checkbox" name="is_free" <?= (isset($course) && $course['is_free']) ? 'checked' : '' ?>>
-                Ucretsiz
+                Ücretsiz
             </label>
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary btn-lg"><?= isset($course) ? 'Guncelle' : 'Kaydet' ?></button>
+    <button type="submit" class="btn btn-primary btn-lg"><?= isset($course) ? 'Güncelle' : 'Kaydet' ?></button>
 </form>
 
 <?php if (isset($course) && isset($sections)): ?>
 <hr>
-<h2>Kurs Icerigi (Bolumler & Dersler)</h2>
+<h2>Kurs İçeriği (Bolumler & Dersler)</h2>
 
 <!-- Bolum Ekle -->
 <form action="<?= url('admin/bolum-ekle') ?>" method="POST" class="inline-form">
@@ -128,7 +128,7 @@
         <input type="number" name="video_duration" placeholder="Sure (sn)" style="width:100px">
         <input type="number" name="sort_order" placeholder="Sira" value="0" style="width:80px">
         <label class="checkbox-label-inline">
-            <input type="checkbox" name="is_free_preview"> Onizleme
+            <input type="checkbox" name="is_free_preview"> Önizleme
         </label>
         <button type="submit" class="btn btn-primary btn-sm">Ders Ekle</button>
     </form>
@@ -136,7 +136,7 @@
     <?php if (!empty($section['lessons'])): ?>
     <table class="admin-table admin-table-sm">
         <thead>
-            <tr><th>Sira</th><th>Ders Adi</th><th>Sure</th><th>Onizleme</th></tr>
+            <tr><th>Sira</th><th>Ders Adi</th><th>Sure</th><th>Önizleme</th></tr>
         </thead>
         <tbody>
             <?php foreach ($section['lessons'] as $lesson): ?>

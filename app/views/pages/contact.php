@@ -1,8 +1,8 @@
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <h1>Iletisim</h1>
-            <p>Sorulariniz icin bize ulasin</p>
+            <h1>İletişim</h1>
+            <p>Sorularınız icin bize ulaşın</p>
         </div>
 
         <div class="contact-layout">
@@ -11,7 +11,7 @@
 
                 <div class="form-row-2">
                     <div class="form-group">
-                        <label>Adiniz Soyadiniz</label>
+                        <label>Adınız Soyadınız</label>
                         <input type="text" name="name" required>
                     </div>
                     <div class="form-group">
@@ -32,11 +32,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Mesajiniz</label>
+                    <label>Mesajınız</label>
                     <textarea name="message" rows="5" required></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg">Gonder</button>
+                <button type="submit" class="btn btn-primary btn-lg">Gönder</button>
             </form>
 
             <div class="contact-info-box">
@@ -51,13 +51,13 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <h4>Adres</h4>
-                        <p>Istanbul, Turkiye</p>
+                        <p>Istanbul, Türkiye</p>
                     </div>
                 </div>
                 <div class="contact-info-item">
                     <i class="fas fa-clock"></i>
                     <div>
-                        <h4>Calisma Saatleri</h4>
+                        <h4>Çalışma Saatleri</h4>
                         <p>Pazartesi - Cuma: 09:00 - 18:00</p>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <aside class="panel-sidebar">
     <div class="panel-sidebar-greeting">
-        <small><?= strtoupper(e(currentUser()['first_name'] ?? '')) ?> <?= strtoupper(e(currentUser()['last_name'] ?? '')) ?> HOS GELDIN!</small>
+        <small><?= strtoupper(e(currentUser()['first_name'] ?? '')) ?> <?= strtoupper(e(currentUser()['last_name'] ?? '')) ?> HOŞ GELDİN!</small>
     </div>
     <nav class="panel-nav">
         <a href="<?= url('panel') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'pano' ? 'active' : '' ?>">
@@ -9,17 +9,17 @@
         <a href="<?= url('panel/profil') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'profil' ? 'active' : '' ?>">
             <i class="fas fa-user"></i> Profil
         </a>
-        <a href="<?= url('panel') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'egitimler' ? 'active' : '' ?>">
+        <a href="<?= url('panel') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'eğitimler' ? 'active' : '' ?>">
             <i class="fas fa-book-open"></i> Egitimler
         </a>
         <a href="<?= url('panel/sertifikalar') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'sertifikalar' ? 'active' : '' ?>">
-            <i class="fas fa-certificate"></i> Katilim Belgeleri
+            <i class="fas fa-certificate"></i> Katılım Belgeleri
         </a>
-        <a href="<?= url('panel/siparisler') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'siparisler' ? 'active' : '' ?>">
-            <i class="fas fa-shopping-bag"></i> Siparisler
+        <a href="<?= url('panel/siparişler') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'siparişler' ? 'active' : '' ?>">
+            <i class="fas fa-shopping-bag"></i> Siparişler
         </a>
-        <a href="<?= url('panel/gorusme') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'gorusme' ? 'active' : '' ?>">
-            <i class="fas fa-comments"></i> Bire Bir Gorusme
+        <a href="<?= url('panel/görüşme') ?>" class="panel-nav-item <?= ($activePanel ?? '') === 'görüşme' ? 'active' : '' ?>">
+            <i class="fas fa-comments"></i> Bire Bir Görüşme
         </a>
     </nav>
     <div class="panel-nav-divider">DIGER</div>

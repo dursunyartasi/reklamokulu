@@ -9,7 +9,7 @@
             <th>Kurs Adi</th>
             <th>Egitmen</th>
             <th>Fiyat</th>
-            <th>Ogrenci</th>
+            <th>Öğrenci</th>
             <th>Durum</th>
             <th>Islemler</th>
         </tr>
@@ -24,7 +24,7 @@
             <td><?= e($course['instructor_first_name'] . ' ' . $course['instructor_last_name']) ?></td>
             <td>
                 <?php if ($course['is_free']): ?>
-                    <span class="badge badge-free">Ucretsiz</span>
+                    <span class="badge badge-free">Ücretsiz</span>
                 <?php else: ?>
                     <?php if ($course['sale_price']): ?>
                         <span class="price-old-sm"><?= formatPrice($course['price']) ?></span><br>

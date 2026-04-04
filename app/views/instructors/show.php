@@ -35,7 +35,7 @@
                     <h3><a href="<?= url('egitim/' . $course['slug']) ?>"><?= e($course['title']) ?></a></h3>
                     <div class="course-price">
                         <?php if ($course['is_free']): ?>
-                            <span class="price-current">Ucretsiz</span>
+                            <span class="price-current">Ücretsiz</span>
                         <?php else: ?>
                             <?php if ($course['sale_price']): ?>
                                 <span class="price-old"><?= formatPrice($course['price']) ?></span>

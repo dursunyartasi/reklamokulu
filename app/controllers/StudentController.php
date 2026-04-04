@@ -9,17 +9,34 @@ class StudentController
         }
     }
 
+    private function getPanelCounts(): array
+    {
+        $db = Database::connect();
+        $stmt = $db->prepare('SELECT COUNT(*) FROM enrollments WHERE user_id = ? AND status = "active"');
+        $stmt->execute([currentUserId()]);
+        $courseCount = (int) $stmt->fetchColumn();
+
+        $stmt = $db->prepare('SELECT COUNT(*) FROM certificates WHERE user_id = ?');
+        $stmt->execute([currentUserId()]);
+        $certCount = (int) $stmt->fetchColumn();
+
+        return ['courses' => $courseCount, 'certs' => $certCount];
+    }
+
     public function dashboard(): void
     {
         require_once __DIR__ . '/../models/Course.php';
         $courseModel = new Course();
 
         $myCourses = $courseModel->getUserCourses(currentUserId());
-
-        // Her kurs icin ilerleme hesapla
         foreach ($myCourses as &$course) {
             $course['progress'] = $courseModel->getCourseProgress(currentUserId(), $course['id']);
         }
+
+        $counts = $this->getPanelCounts();
+        $panelCourseCount = $counts['courses'];
+        $panelCertCount = $counts['certs'];
+        $certificateCount = $counts['certs'];
 
         $pageTitle = 'Ogrenci Paneli';
         require __DIR__ . '/../views/layouts/header.php';
@@ -103,6 +120,10 @@ class StudentController
         $stmt->execute([currentUserId()]);
         $certificates = $stmt->fetchAll();
 
+        $counts = $this->getPanelCounts();
+        $panelCourseCount = $counts['courses'];
+        $panelCertCount = $counts['certs'];
+
         $pageTitle = 'Sertifikalarim';
         require __DIR__ . '/../views/layouts/header.php';
         require __DIR__ . '/../views/student/certificates.php';
@@ -115,10 +136,87 @@ class StudentController
         $userModel = new User();
         $user = $userModel->findById(currentUserId());
 
+        $counts = $this->getPanelCounts();
+        $panelCourseCount = $counts['courses'];
+        $panelCertCount = $counts['certs'];
+
         $pageTitle = 'Profilim';
         require __DIR__ . '/../views/layouts/header.php';
         require __DIR__ . '/../views/student/profile.php';
         require __DIR__ . '/../views/layouts/footer.php';
+    }
+
+    public function orders(): void
+    {
+        require_once __DIR__ . '/../models/Order.php';
+        $orderModel = new Order();
+        $orders = $orderModel->getUserOrders(currentUserId());
+
+        foreach ($orders as &$order) {
+            $order['items'] = $orderModel->getOrderItems($order['id']);
+        }
+
+        $counts = $this->getPanelCounts();
+        $panelCourseCount = $counts['courses'];
+        $panelCertCount = $counts['certs'];
+
+        $pageTitle = 'Siparislerim';
+        require __DIR__ . '/../views/layouts/header.php';
+        require __DIR__ . '/../views/student/orders.php';
+        require __DIR__ . '/../views/layouts/footer.php';
+    }
+
+    public function meetings(): void
+    {
+        require_once __DIR__ . '/../models/Course.php';
+        $courseModel = new Course();
+
+        $enrolledCourses = $courseModel->getUserCourses(currentUserId());
+
+        $db = Database::connect();
+        $stmt = $db->prepare(
+            'SELECT m.*, c.title as course_title
+             FROM meetings m
+             JOIN courses c ON m.course_id = c.id
+             WHERE m.user_id = ?
+             ORDER BY m.created_at DESC'
+        );
+        $stmt->execute([currentUserId()]);
+        $meetings = $stmt->fetchAll();
+
+        $counts = $this->getPanelCounts();
+        $panelCourseCount = $counts['courses'];
+        $panelCertCount = $counts['certs'];
+
+        $pageTitle = 'Bire Bir Gorusme';
+        require __DIR__ . '/../views/layouts/header.php';
+        require __DIR__ . '/../views/student/meetings.php';
+        require __DIR__ . '/../views/layouts/footer.php';
+    }
+
+    public function meetingRequest(): void
+    {
+        if (!verifyCsrf($_POST['csrf_token'] ?? '')) {
+            setFlash('error', 'Gecersiz istek.');
+            redirect('panel/gorusme');
+        }
+
+        $db = Database::connect();
+        $stmt = $db->prepare(
+            'INSERT INTO meetings (user_id, course_id, preferred_date, preferred_time, duration, notes, status, created_at)
+             VALUES (?, ?, ?, ?, ?, ?, "pending", NOW())'
+        );
+        $stmt->execute([
+            currentUserId(),
+            (int) $_POST['course_id'],
+            $_POST['preferred_date'],
+            $_POST['preferred_time'],
+            (int) ($_POST['duration'] ?? 30),
+            trim($_POST['notes'] ?? ''),
+        ]);
+
+        setFlash('success', 'Gorusme talebiniz basariyla olusturuldu. En kisa surede donus yapilacaktir.');
+        redirect('panel/gorusme');
     }
 
     public function updateProfile(): void

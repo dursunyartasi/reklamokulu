@@ -69,6 +69,9 @@ $router->get('/panel', 'StudentController', 'dashboard');
 $router->get('/panel/kurs/{slug}', 'StudentController', 'watchCourse');
 $router->post('/panel/ders-tamamla', 'StudentController', 'completeLesson');
 $router->get('/panel/sertifikalar', 'StudentController', 'certificates');
+$router->get('/panel/siparisler', 'StudentController', 'orders');
+$router->get('/panel/gorusme', 'StudentController', 'meetings');
+$router->post('/panel/gorusme-talebi', 'StudentController', 'meetingRequest');
 $router->get('/panel/profil', 'StudentController', 'profile');
 $router->post('/panel/profil', 'StudentController', 'updateProfile');
 

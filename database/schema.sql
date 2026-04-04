@@ -230,6 +230,23 @@ CREATE TABLE corporate_requests (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
+-- Bire Bir Gorusmeler
+CREATE TABLE meetings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    course_id INT NOT NULL,
+    preferred_date DATE NOT NULL,
+    preferred_time VARCHAR(10) NOT NULL,
+    duration INT DEFAULT 30,
+    notes TEXT DEFAULT NULL,
+    meeting_link VARCHAR(500) DEFAULT NULL,
+    status ENUM('pending','approved','completed','cancelled') DEFAULT 'pending',
+    admin_notes TEXT DEFAULT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+) ENGINE=InnoDB;
+
 -- Site Ayarlari
 CREATE TABLE settings (
     id INT AUTO_INCREMENT PRIMARY KEY,

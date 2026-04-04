@@ -577,6 +577,154 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 /* ============================================
    STUDENT PANEL
    ============================================ */
+
+/* Panel Hero */
+.panel-hero { background: #111; padding: 2rem 0; }
+.panel-hero-inner {
+    display: flex; align-items: center; gap: 1.5rem;
+}
+.panel-avatar { font-size: 4rem; color: #fff; opacity: 0.9; }
+.panel-user-info { flex: 1; }
+.panel-user-info h2 { color: #fff; font-size: 1.5rem; margin-bottom: 0.25rem; }
+.panel-user-stats { display: flex; gap: 1.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.7); }
+.panel-user-stats i { margin-right: 0.35rem; }
+.btn-panel-cta {
+    background: var(--primary); color: #fff; padding: 0.625rem 1.5rem;
+    border-radius: var(--radius-sm); font-weight: 600; font-size: 0.875rem;
+}
+.btn-panel-cta:hover { opacity: 0.9; color: #fff; }
+
+/* Panel Layout */
+.panel-section { padding-top: 2rem; }
+.panel-layout { display: grid; grid-template-columns: 260px 1fr; gap: 2rem; }
+
+/* Panel Sidebar */
+.panel-sidebar {
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.5rem; position: sticky; top: 90px; align-self: start;
+}
+.panel-sidebar-greeting {
+    padding-bottom: 1rem; margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.5px;
+}
+.panel-nav { display: flex; flex-direction: column; }
+.panel-nav-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.625rem 0.75rem; border-radius: var(--radius-sm);
+    color: var(--text); font-size: 0.9rem; font-weight: 500;
+    transition: all var(--transition);
+}
+.panel-nav-item:hover { background: var(--bg-alt); color: var(--primary); }
+.panel-nav-item.active { color: var(--primary); background: var(--primary-light); font-weight: 600; }
+.panel-nav-item i { width: 18px; text-align: center; font-size: 0.85rem; }
+.panel-nav-logout { color: var(--danger); }
+.panel-nav-logout:hover { color: var(--danger); background: #FEE2E2; }
+.panel-nav-divider {
+    font-size: 0.7rem; color: var(--text-light); letter-spacing: 0.5px;
+    padding: 1rem 0.75rem 0.5rem; margin-top: 0.5rem;
+    border-top: 1px solid var(--border);
+}
+
+/* Panel Main */
+.panel-title { font-size: 1.25rem; margin-bottom: 1.25rem; }
+
+/* Panel Stats Cards */
+.panel-stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.panel-stat-card {
+    border-radius: var(--radius); padding: 2rem; text-align: center; position: relative;
+}
+.panel-stat-purple { background: #F3E8FF; }
+.panel-stat-blue { background: #E0F2FE; }
+.panel-stat-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem; font-size: 1.25rem;
+}
+.panel-stat-purple .panel-stat-icon { background: #E9D5FF; color: #7C3AED; }
+.panel-stat-blue .panel-stat-icon { background: #BAE6FD; color: #0284C7; }
+.panel-stat-number { font-size: 2.5rem; font-weight: 800; color: var(--dark); }
+.panel-stat-label { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.5px; margin-top: 0.5rem; }
+
+/* Panel Tabs */
+.panel-tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 1.5rem; }
+.panel-tab {
+    background: none; border: none; padding: 0.75rem 1.25rem;
+    font-family: var(--font); font-size: 0.875rem; font-weight: 500;
+    color: var(--text-light); cursor: pointer;
+    border-bottom: 2px solid transparent; margin-bottom: -2px;
+}
+.panel-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* Panel Course Cards */
+.panel-courses-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.panel-course-card {
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden;
+}
+.panel-course-thumb { aspect-ratio: 16/9; overflow: hidden; background: var(--bg-alt); }
+.panel-course-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.panel-course-info { padding: 1.25rem; }
+.panel-course-info h4 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+.panel-course-instructor { font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.75rem; }
+.panel-progress { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.35rem; }
+.panel-progress-label { color: var(--text-light); }
+.panel-progress-pct { font-weight: 700; color: var(--primary); }
+
+/* Orders */
+.orders-list { display: flex; flex-direction: column; gap: 1rem; }
+.order-card { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.order-card-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 1.25rem; background: var(--bg-alt);
+}
+.order-number { font-weight: 700; font-size: 0.9rem; margin-right: 1rem; }
+.order-date { font-size: 0.8rem; color: var(--text-light); }
+.order-status { font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 50px; }
+.order-status-completed { background: #D1FAE5; color: #065F46; }
+.order-status-pending { background: #FEF3C7; color: #92400E; }
+.order-status-failed { background: #FEE2E2; color: #991B1B; }
+.order-status-refunded { background: #E0E7FF; color: #3730A3; }
+.order-card-body { padding: 0 1.25rem; }
+.order-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.order-card-footer {
+    display: flex; justify-content: space-between; padding: 1rem 1.25rem;
+    font-size: 0.95rem; border-top: 1px solid var(--border);
+}
+.order-total { color: var(--primary); font-size: 1.1rem; }
+
+/* Meetings */
+.meeting-info-card {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    background: var(--accent-light); border: 1px solid var(--primary);
+    border-radius: var(--radius); padding: 1.5rem; margin-bottom: 2rem;
+}
+.meeting-info-icon { font-size: 2rem; color: var(--primary); }
+.meeting-info-card h4 { margin-bottom: 0.35rem; }
+.meeting-info-card p { font-size: 0.875rem; color: var(--text-light); }
+.meeting-form { margin-bottom: 2rem; }
+.meetings-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.meeting-card {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius);
+}
+.meeting-card-left { display: flex; gap: 1rem; align-items: center; }
+.meeting-date-badge {
+    width: 50px; text-align: center; background: var(--primary-light);
+    border-radius: var(--radius-sm); padding: 0.5rem;
+}
+.meeting-day { display: block; font-size: 1.25rem; font-weight: 800; color: var(--primary); }
+.meeting-month { display: block; font-size: 0.7rem; color: var(--primary); text-transform: uppercase; }
+.meeting-card-left h4 { font-size: 0.95rem; margin-bottom: 0.25rem; }
+.meeting-card-left p { font-size: 0.8rem; color: var(--text-light); }
+.meeting-notes { font-style: italic; margin-top: 0.25rem; }
+.meeting-status { font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 50px; }
+.meeting-status-pending { background: #FEF3C7; color: #92400E; }
+.meeting-status-approved { background: #D1FAE5; color: #065F46; }
+.meeting-status-completed { background: #E0E7FF; color: #3730A3; }
+.meeting-status-cancelled { background: #FEE2E2; color: #991B1B; }
+
+/* Legacy support */
 .panel-header { margin-bottom: 2rem; }
 .panel-header h1 { margin-bottom: 0.5rem; }
 .my-courses-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
@@ -673,6 +821,11 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
     .form-row-2 { grid-template-columns: 1fr; }
     .section-header-row { flex-direction: column; align-items: flex-start; }
     .corporate-cta-inner { flex-direction: column; text-align: center; }
+    .panel-layout { grid-template-columns: 1fr; }
+    .panel-sidebar { position: static; }
+    .panel-hero-inner { flex-wrap: wrap; }
+    .panel-stats-grid { grid-template-columns: 1fr 1fr; }
+    .panel-courses-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 575px) {

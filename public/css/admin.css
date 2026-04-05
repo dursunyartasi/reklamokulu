@@ -100,6 +100,24 @@
 
 .admin-section { margin-top: 2rem; }
 
+/* Project Status Cards */
+.status-card {
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.5rem; margin-bottom: 1rem;
+}
+.status-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+.status-card h4 { font-size: 0.95rem; margin: 1.25rem 0 0.5rem; color: var(--dark); }
+.status-card ul { list-style: none; padding: 0; }
+.status-card ul li {
+    padding: 0.35rem 0; font-size: 0.875rem; color: var(--text);
+    border-bottom: 1px solid #f3f4f6;
+}
+.status-card ul li:last-child { border: none; }
+.status-done { border-left: 4px solid #10b981; }
+.status-priority-high { border-left: 4px solid #ef4444; background: #FFF5F5; }
+.status-priority-medium { border-left: 4px solid #f59e0b; background: #FFFBF0; }
+.status-priority-low { border-left: 4px solid #10b981; background: #F0FFF4; }
+
 /* Responsive */
 @media (max-width: 991px) {
     .admin-layout { grid-template-columns: 1fr; }

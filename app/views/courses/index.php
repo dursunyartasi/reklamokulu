@@ -14,7 +14,7 @@
             <div class="course-card">
                 <div class="course-thumb">
                     <?php if ($course['thumbnail']): ?>
-                        <img src="<?= url($course['thumbnail']) ?>" alt="<?= e($course['title']) ?>" loading="lazy">
+                        <img src="<?= url($course['thumbnail']) ?>" alt="<?= e($course['title']) ?>" width="400" height="225" decoding="async">
                     <?php else: ?>
                         <div class="course-thumb-placeholder">
                             <i class="fas fa-play-circle"></i>

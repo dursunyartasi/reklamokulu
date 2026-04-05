@@ -63,6 +63,7 @@
                     <a href="<?= url('egitimler') ?>">Online Eğitimler <i class="fas fa-chevron-down"></i></a>
                 </div>
                 <a href="<?= url('egitmenler') ?>">Eğitmenler</a>
+                <a href="<?= url('ucretsiz-egitim') ?>">Ucretsiz Egitim</a>
                 <a href="<?= url('kurumsal-egitimler') ?>">Kurumsal Eğitim</a>
                 <a href="<?= url('blog') ?>">Blog</a>
                 <a href="<?= url('neden-biz') ?>">Neden Biz?</a>

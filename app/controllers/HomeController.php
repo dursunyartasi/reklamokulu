@@ -101,4 +101,36 @@ class HomeController
         require __DIR__ . '/../views/pages/corporate.php';
         require __DIR__ . '/../views/layouts/footer.php';
     }
+
+    public function freeEducation(): void
+    {
+        $pageTitle = 'Ucretsiz Egitim - Dijital Pazarlama Dersleri';
+        require __DIR__ . '/../views/layouts/header.php';
+        require __DIR__ . '/../views/pages/free-education.php';
+        require __DIR__ . '/../views/layouts/footer.php';
+    }
+
+    public function terms(): void
+    {
+        $pageTitle = 'Kullanim Kosullari';
+        require __DIR__ . '/../views/layouts/header.php';
+        require __DIR__ . '/../views/pages/terms.php';
+        require __DIR__ . '/../views/layouts/footer.php';
+    }
+
+    public function kvkk(): void
+    {
+        $pageTitle = 'KVKK Aydinlatma Metni';
+        require __DIR__ . '/../views/layouts/header.php';
+        require __DIR__ . '/../views/pages/kvkk.php';
+        require __DIR__ . '/../views/layouts/footer.php';
+    }
+
+    public function refund(): void
+    {
+        $pageTitle = 'Iptal ve Iade Politikasi';
+        require __DIR__ . '/../views/layouts/header.php';
+        require __DIR__ . '/../views/pages/refund.php';
+        require __DIR__ . '/../views/layouts/footer.php';
+    }
 }

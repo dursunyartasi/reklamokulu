@@ -62,6 +62,14 @@ $router->post('/iletisim', 'HomeController', 'contactSubmit');
 $router->get('/kurumsal-egitimler', 'HomeController', 'corporate');
 $router->post('/kurumsal-basvuru', 'HomeController', 'corporateSubmit');
 
+// Ucretsiz Egitim / Ornek Dersler
+$router->get('/ucretsiz-egitim', 'HomeController', 'freeEducation');
+
+// Yasal Sayfalar
+$router->get('/kullanim-kosullari', 'HomeController', 'terms');
+$router->get('/kvkk', 'HomeController', 'kvkk');
+$router->get('/iptal-iade', 'HomeController', 'refund');
+
 // ========================
 // STUDENT ROUTES
 // ========================

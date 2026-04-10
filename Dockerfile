@@ -24,7 +24,8 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" && \
     echo "log_errors = On" >> "$PHP_INI_DIR/php.ini" && \
     echo "session.cookie_httponly = 1" >> "$PHP_INI_DIR/php.ini" && \
     echo "session.cookie_samesite = Lax" >> "$PHP_INI_DIR/php.ini" && \
-    echo "session.use_strict_mode = 1" >> "$PHP_INI_DIR/php.ini"
+    echo "session.use_strict_mode = 1" >> "$PHP_INI_DIR/php.ini" && \
+    echo "variables_order = EGPCS" >> "$PHP_INI_DIR/php.ini"
 
 # Apache Server Signature gizle
 RUN echo "ServerTokens Prod" >> /etc/apache2/conf-available/security.conf && \
@@ -32,7 +33,7 @@ RUN echo "ServerTokens Prod" >> /etc/apache2/conf-available/security.conf && \
     a2enconf security
 
 # Cache bust - force rebuild
-ARG CACHEBUST=3
+ARG CACHEBUST=4
 
 # Proje dosyalarini kopyala
 COPY . /var/www/html/

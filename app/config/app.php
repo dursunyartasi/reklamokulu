@@ -141,7 +141,7 @@ function currentUser(): ?array
 // URL helper
 function url(string $path = ''): string
 {
-    $base = rtrim($_ENV['APP_URL'] ?? '', '/');
+    $base = rtrim($_ENV['APP_URL'] ?? getenv('APP_URL') ?: '', '/');
     return $base . '/' . ltrim($path, '/');
 }
 

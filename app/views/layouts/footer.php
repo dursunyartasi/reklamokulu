@@ -59,7 +59,7 @@
     <?php endif; ?>
 </nav>
 
-<script src="<?= url('js/app.js') ?>"></script>
+<script src="<?= url('js/app.js') ?>?v=20260410b" defer></script>
 <script>
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('<?= url('sw.js') ?>').catch(() => {});

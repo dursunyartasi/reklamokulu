@@ -154,7 +154,10 @@
                                 </button>
                                 <div class="section-lessons" <?= $index === 0 ? 'style="display:block"' : '' ?>>
                                     <?php foreach ($section['lessons'] as $lesson): ?>
-                                    <div class="lesson-item">
+                                    <div class="lesson-item <?= ($lesson['is_free_preview'] && $lesson['video_url']) ? 'lesson-preview-playable' : '' ?>"
+                                         <?php if ($lesson['is_free_preview'] && $lesson['video_url']): ?>
+                                         data-video="<?= e($lesson['video_url']) ?>"
+                                         <?php endif; ?>>
                                         <span class="lesson-title">
                                             <i class="fas fa-play-circle"></i>
                                             <?= e($lesson['title']) ?>

@@ -88,14 +88,30 @@ class StudentController
 
     public function completeLesson(): void
     {
+        if (!verifyCsrf($_POST['csrf_token'] ?? '')) {
+            setFlash('error', 'Gecersiz istek.');
+            redirect('panel');
+        }
+
         $lessonId = (int) ($_POST['lesson_id'] ?? 0);
         if (!$lessonId) {
-            http_response_code(400);
-            echo json_encode(['error' => 'Gecersiz ders']);
-            return;
+            setFlash('error', 'Gecersiz ders.');
+            redirect('panel');
         }
 
         $db = Database::connect();
+
+        // Dersin hangi kursa ait oldugunu bul
+        $stmt = $db->prepare(
+            'SELECT c.slug FROM lessons l
+             JOIN course_sections cs ON l.section_id = cs.id
+             JOIN courses c ON cs.course_id = c.id
+             WHERE l.id = ?'
+        );
+        $stmt->execute([$lessonId]);
+        $courseSlug = $stmt->fetchColumn();
+
+        // Ilerlemeyi kaydet
         $stmt = $db->prepare(
             'INSERT INTO lesson_progress (user_id, lesson_id, is_completed, completed_at)
              VALUES (?, ?, 1, NOW())
@@ -103,8 +119,35 @@ class StudentController
         );
         $stmt->execute([currentUserId(), $lessonId]);
 
-        header('Content-Type: application/json');
-        echo json_encode(['success' => true]);
+        // Sonraki derse yonlendir
+        $nextLesson = $db->prepare(
+            'SELECT l.id FROM lessons l
+             JOIN course_sections cs ON l.section_id = cs.id
+             JOIN courses c ON cs.course_id = c.id
+             WHERE c.slug = ? AND (cs.sort_order > (
+                SELECT cs2.sort_order FROM lessons l2
+                JOIN course_sections cs2 ON l2.section_id = cs2.id
+                WHERE l2.id = ?
+             ) OR (cs.sort_order = (
+                SELECT cs2.sort_order FROM lessons l2
+                JOIN course_sections cs2 ON l2.section_id = cs2.id
+                WHERE l2.id = ?
+             ) AND l.sort_order > (SELECT sort_order FROM lessons WHERE id = ?)))
+             ORDER BY cs.sort_order, l.sort_order LIMIT 1'
+        );
+        $nextLesson->execute([$courseSlug, $lessonId, $lessonId, $lessonId]);
+        $nextId = $nextLesson->fetchColumn();
+
+        setFlash('success', 'Ders tamamlandi!');
+        if ($courseSlug) {
+            $redirectUrl = 'panel/kurs/' . $courseSlug;
+            if ($nextId) {
+                $redirectUrl .= '?ders=' . $nextId;
+            }
+            redirect($redirectUrl);
+        } else {
+            redirect('panel');
+        }
     }
 
     public function certificates(): void

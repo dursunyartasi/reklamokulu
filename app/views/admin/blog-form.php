@@ -1,33 +1,38 @@
-<h1>Yeni Blog Yazisi</h1>
+<h1><?= isset($post) ? 'Blog Yazisi Duzenle' : 'Yeni Blog Yazisi' ?></h1>
 
-<form action="<?= url('admin/blog/kaydet') ?>" method="POST" enctype="multipart/form-data" class="admin-form">
+<form action="<?= isset($post) ? url('admin/blog/' . $post['id'] . '/guncelle') : url('admin/blog/kaydet') ?>"
+      method="POST" enctype="multipart/form-data" class="admin-form">
     <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
 
     <div class="form-group">
-        <label>Başlık *</label>
-        <input type="text" name="title" required>
+        <label>Baslik *</label>
+        <input type="text" name="title" value="<?= e($post['title'] ?? '') ?>" required>
     </div>
 
     <div class="form-group">
-        <label>Özet</label>
-        <input type="text" name="excerpt" maxlength="500">
+        <label>Ozet</label>
+        <input type="text" name="excerpt" value="<?= e($post['excerpt'] ?? '') ?>" maxlength="500">
     </div>
 
     <div class="form-group">
-        <label>İçerik</label>
-        <textarea name="content" rows="15"></textarea>
+        <label>Icerik</label>
+        <textarea name="content" rows="15" id="blogContent"><?= e($post['content'] ?? '') ?></textarea>
+        <small>HTML kullanabilirsiniz. Ornek: &lt;p&gt;, &lt;h2&gt;, &lt;ul&gt;, &lt;strong&gt;</small>
     </div>
 
     <div class="form-group">
-        <label>Kapak Görseli</label>
+        <label>Kapak Gorseli</label>
         <input type="file" name="thumbnail" accept="image/*">
+        <?php if (isset($post) && $post['thumbnail']): ?>
+            <img src="<?= url($post['thumbnail']) ?>" alt="" class="form-preview-img" style="margin-top:0.5rem;max-height:150px;border-radius:8px;">
+        <?php endif; ?>
     </div>
 
     <div class="form-group">
         <label class="checkbox-label">
-            <input type="checkbox" name="is_published"> Yayınla
+            <input type="checkbox" name="is_published" <?= (isset($post) && $post['is_published']) ? 'checked' : '' ?>> Yayinla
         </label>
     </div>
 
-    <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+    <button type="submit" class="btn btn-primary btn-lg"><?= isset($post) ? 'Guncelle' : 'Kaydet' ?></button>
 </form>

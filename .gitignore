@@ -1,7 +1,8 @@
 .env
 vendor/
 node_modules/
-public/uploads/user-*
-!public/uploads/.gitkeep
+public/uploads/blog/*
+public/uploads/instructors/*
+!public/uploads/**/.gitkeep
 .DS_Store
 *.log

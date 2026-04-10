@@ -36,6 +36,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- User Dropdown ---
+    const userMenuBtn = document.querySelector('.user-menu-btn');
+    const userDropdown = document.querySelector('.user-dropdown');
+    if (userMenuBtn && userDropdown) {
+        userMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', () => {
+            userDropdown.classList.remove('show');
+        });
+    }
+
+    // --- Video Preview Click-to-Play ---
+    const videoPlaceholders = document.querySelectorAll('.video-placeholder[data-video]');
+    videoPlaceholders.forEach(placeholder => {
+        placeholder.addEventListener('click', () => {
+            const videoUrl = placeholder.dataset.video;
+            if (!videoUrl) return;
+
+            const container = placeholder.parentElement;
+            const embedUrl = getEmbedUrl(videoUrl);
+
+            if (embedUrl) {
+                container.innerHTML = '<iframe src="' + embedUrl + '" frameborder="0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture" style="width:100%;height:100%;"></iframe>';
+            } else {
+                container.innerHTML = '<video src="' + videoUrl + '" controls autoplay style="width:100%;height:100%;"></video>';
+            }
+        });
+    });
+
+    function getEmbedUrl(url) {
+        // YouTube
+        let match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+        if (match) return 'https://www.youtube.com/embed/' + match[1] + '?autoplay=1';
+
+        // Vimeo
+        match = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+        if (match) return 'https://player.vimeo.com/video/' + match[1] + '?autoplay=1';
+
+        // Already an embed URL
+        if (url.includes('youtube.com/embed/') || url.includes('player.vimeo.com/')) {
+            return url + (url.includes('?') ? '&' : '?') + 'autoplay=1';
+        }
+
+        return null;
+    }
+
+    // --- Free Preview Lesson Click-to-Play ---
+    const previewLessons = document.querySelectorAll('.lesson-preview-playable[data-video]');
+    previewLessons.forEach(lesson => {
+        lesson.style.cursor = 'pointer';
+        lesson.addEventListener('click', () => {
+            const videoUrl = lesson.dataset.video;
+            if (!videoUrl) return;
+
+            const embedUrl = getEmbedUrl(videoUrl);
+            if (!embedUrl) return;
+
+            // Scroll to preview area and replace video
+            const previewContainer = document.querySelector('.preview-video');
+            if (previewContainer) {
+                previewContainer.innerHTML = '<iframe src="' + embedUrl + '" frameborder="0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture" style="width:100%;aspect-ratio:16/9;border-radius:12px;"></iframe>';
+                previewContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    });
+
     // --- Countdown Timer ---
     const countdownTimers = document.querySelectorAll('.countdown-timer');
     countdownTimers.forEach(timer => {
@@ -157,5 +225,42 @@ document.addEventListener('DOMContentLoaded', () => {
             alert.style.transition = 'opacity 0.5s';
             setTimeout(() => alert.remove(), 500);
         }, 5000);
+    });
+
+    // --- Lazy Load Images (native + fallback) ---
+    if ('loading' in HTMLImageElement.prototype) {
+        // Browser supports native lazy loading
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.dataset.src;
+        });
+    } else {
+        // Fallback: IntersectionObserver
+        const imgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                    }
+                    imgObserver.unobserve(img);
+                }
+            });
+        });
+        document.querySelectorAll('img[data-src]').forEach(img => imgObserver.observe(img));
+    }
+
+    // --- Image Error Fallback ---
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            if (!this.dataset.errored) {
+                this.dataset.errored = '1';
+                this.style.display = 'none';
+                const placeholder = document.createElement('div');
+                placeholder.className = 'img-fallback';
+                placeholder.innerHTML = '<i class="fas fa-image" style="font-size:2rem;color:#ccc;"></i>';
+                placeholder.style.cssText = 'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:var(--bg-alt);border-radius:8px;min-height:120px;';
+                this.parentElement.appendChild(placeholder);
+            }
+        });
     });
 });

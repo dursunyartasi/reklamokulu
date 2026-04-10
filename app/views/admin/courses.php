@@ -40,7 +40,11 @@
             </td>
             <td>
                 <a href="<?= url('admin/kurslar/' . $course['id'] . '/duzenle') ?>" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></a>
-                <a href="<?= url('admin/kurslar/' . $course['id'] . '/sil') ?>" class="btn btn-sm btn-danger" onclick="return confirm('Silmek istediğinize emin misiniz?')"><i class="fas fa-trash"></i></a>
+                <form action="<?= url('admin/kurslar/' . $course['id'] . '/sil') ?>" method="POST" style="display:inline"
+                      onsubmit="return confirm('Bu kursu silmek istediginize emin misiniz?')">
+                    <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
+                    <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                </form>
             </td>
         </tr>
         <?php endforeach; ?>

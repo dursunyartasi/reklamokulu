@@ -1,16 +1,17 @@
 <div class="admin-header-row">
-    <h1>Blog Yazıları</h1>
-    <a href="<?= url('admin/blog/ekle') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Yeni Yazı</a>
+    <h1>Blog Yazilari</h1>
+    <a href="<?= url('admin/blog/ekle') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Yeni Yazi</a>
 </div>
 
 <table class="admin-table">
     <thead>
         <tr>
-            <th>Başlık</th>
+            <th>Baslik</th>
             <th>Yazar</th>
-            <th>Görüntüleme</th>
+            <th>Goruntuleme</th>
             <th>Durum</th>
             <th>Tarih</th>
+            <th>Islemler</th>
         </tr>
     </thead>
     <tbody>
@@ -21,14 +22,26 @@
             <td><?= $post['views'] ?></td>
             <td>
                 <span class="status-badge <?= $post['is_published'] ? 'status-completed' : 'status-pending' ?>">
-                    <?= $post['is_published'] ? 'Yayında' : 'Taslak' ?>
+                    <?= $post['is_published'] ? 'Yayinda' : 'Taslak' ?>
                 </span>
             </td>
             <td><?= date('d.m.Y', strtotime($post['created_at'])) ?></td>
+            <td>
+                <a href="<?= url('admin/blog/' . $post['id'] . '/duzenle') ?>" class="btn btn-sm btn-outline" title="Duzenle">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <form action="<?= url('admin/blog/' . $post['id'] . '/sil') ?>" method="POST" style="display:inline"
+                      onsubmit="return confirm('Bu yaziyi silmek istediginize emin misiniz?')">
+                    <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
+                    <button type="submit" class="btn btn-sm btn-danger" title="Sil">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </td>
         </tr>
         <?php endforeach; ?>
         <?php if (empty($posts)): ?>
-        <tr><td colspan="5" class="text-center">Henüz blog yazısı yok</td></tr>
+        <tr><td colspan="6" class="text-center">Henuz blog yazisi yok</td></tr>
         <?php endif; ?>
     </tbody>
 </table>

@@ -14,6 +14,9 @@ loadEnv(__DIR__ . '/../.env');
 // Session baslat
 initSession();
 
+// Guvenlik headerlari
+sendSecurityHeaders();
+
 // Router yukle
 require_once __DIR__ . '/../app/Router.php';
 
@@ -94,11 +97,13 @@ $router->get('/admin/kurslar/ekle', 'AdminController', 'courseCreate');
 $router->post('/admin/kurslar/kaydet', 'AdminController', 'courseStore');
 $router->get('/admin/kurslar/{id}/duzenle', 'AdminController', 'courseEdit');
 $router->post('/admin/kurslar/{id}/guncelle', 'AdminController', 'courseUpdate');
-$router->get('/admin/kurslar/{id}/sil', 'AdminController', 'courseDelete');
+$router->post('/admin/kurslar/{id}/sil', 'AdminController', 'courseDelete');
 
 // Bolum & Ders
 $router->post('/admin/bolum-ekle', 'AdminController', 'sectionStore');
 $router->post('/admin/ders-ekle', 'AdminController', 'lessonStore');
+$router->post('/admin/ders-sil', 'AdminController', 'lessonDelete');
+$router->post('/admin/bolum-sil', 'AdminController', 'sectionDelete');
 
 // Kullanicilar
 $router->get('/admin/kullanicilar', 'AdminController', 'users');
@@ -110,6 +115,9 @@ $router->get('/admin/siparisler', 'AdminController', 'orders');
 $router->get('/admin/blog', 'AdminController', 'blogPosts');
 $router->get('/admin/blog/ekle', 'AdminController', 'blogCreate');
 $router->post('/admin/blog/kaydet', 'AdminController', 'blogStore');
+$router->get('/admin/blog/{id}/duzenle', 'AdminController', 'blogEdit');
+$router->post('/admin/blog/{id}/guncelle', 'AdminController', 'blogUpdate');
+$router->post('/admin/blog/{id}/sil', 'AdminController', 'blogDelete');
 
 // Mesajlar
 $router->get('/admin/mesajlar', 'AdminController', 'messages');

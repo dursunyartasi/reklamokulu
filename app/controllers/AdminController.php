@@ -75,13 +75,19 @@ class AdminController
             'is_free' => isset($_POST['is_free']) ? 1 : 0,
         ];
 
-        // Thumbnail yukleme
+        // Thumbnail yukleme (guvenli)
         if (!empty($_FILES['thumbnail']['name'])) {
-            $ext = pathinfo($_FILES['thumbnail']['name'], PATHINFO_EXTENSION);
+            $uploadError = validateUpload($_FILES['thumbnail']);
+            if ($uploadError) {
+                setFlash('error', $uploadError);
+                redirect('admin/kurslar/ekle');
+            }
+            $ext = strtolower(pathinfo($_FILES['thumbnail']['name'], PATHINFO_EXTENSION));
             $filename = $data['slug'] . '-' . time() . '.' . $ext;
-            $target = __DIR__ . '/../../public/uploads/' . $filename;
+            $target = __DIR__ . '/../../public/uploads/courses/' . $filename;
+            @mkdir(dirname($target), 0755, true);
             if (move_uploaded_file($_FILES['thumbnail']['tmp_name'], $target)) {
-                $data['thumbnail'] = 'uploads/' . $filename;
+                $data['thumbnail'] = 'uploads/courses/' . $filename;
             }
         }
 
@@ -138,11 +144,17 @@ class AdminController
         ];
 
         if (!empty($_FILES['thumbnail']['name'])) {
-            $ext = pathinfo($_FILES['thumbnail']['name'], PATHINFO_EXTENSION);
+            $uploadError = validateUpload($_FILES['thumbnail']);
+            if ($uploadError) {
+                setFlash('error', $uploadError);
+                redirect('admin/kurslar/' . $id . '/duzenle');
+            }
+            $ext = strtolower(pathinfo($_FILES['thumbnail']['name'], PATHINFO_EXTENSION));
             $filename = $data['slug'] . '-' . time() . '.' . $ext;
-            $target = __DIR__ . '/../../public/uploads/' . $filename;
+            $target = __DIR__ . '/../../public/uploads/courses/' . $filename;
+            @mkdir(dirname($target), 0755, true);
             if (move_uploaded_file($_FILES['thumbnail']['tmp_name'], $target)) {
-                $data['thumbnail'] = 'uploads/' . $filename;
+                $data['thumbnail'] = 'uploads/courses/' . $filename;
             }
         }
 
@@ -153,6 +165,10 @@ class AdminController
 
     public function courseDelete(string $id): void
     {
+        if (!verifyCsrf($_POST['csrf_token'] ?? '')) {
+            setFlash('error', 'Gecersiz istek.');
+            redirect('admin/kurslar');
+        }
         require_once __DIR__ . '/../models/Course.php';
         (new Course())->delete((int) $id);
         setFlash('success', 'Kurs silindi.');
@@ -254,17 +270,130 @@ class AdminController
         ];
 
         if (!empty($_FILES['thumbnail']['name'])) {
-            $ext = pathinfo($_FILES['thumbnail']['name'], PATHINFO_EXTENSION);
+            $uploadError = validateUpload($_FILES['thumbnail']);
+            if ($uploadError) {
+                setFlash('error', $uploadError);
+                redirect('admin/blog/ekle');
+            }
+            $ext = strtolower(pathinfo($_FILES['thumbnail']['name'], PATHINFO_EXTENSION));
             $filename = 'blog-' . $data['slug'] . '-' . time() . '.' . $ext;
-            $target = __DIR__ . '/../../public/uploads/' . $filename;
+            $target = __DIR__ . '/../../public/uploads/blog/' . $filename;
+            @mkdir(dirname($target), 0755, true);
             if (move_uploaded_file($_FILES['thumbnail']['tmp_name'], $target)) {
-                $data['thumbnail'] = 'uploads/' . $filename;
+                $data['thumbnail'] = 'uploads/blog/' . $filename;
             }
         }
 
         (new Blog())->create($data);
         setFlash('success', 'Blog yazisi olusturuldu.');
         redirect('admin/blog');
+    }
+
+    public function blogEdit(string $id): void
+    {
+        require_once __DIR__ . '/../models/Blog.php';
+        $post = (new Blog())->findById((int) $id);
+
+        if (!$post) {
+            setFlash('error', 'Blog yazisi bulunamadi.');
+            redirect('admin/blog');
+        }
+
+        $pageTitle = 'Blog Duzenle: ' . $post['title'];
+        $view = 'blog-form';
+        require __DIR__ . '/../views/admin/layout.php';
+    }
+
+    public function blogUpdate(string $id): void
+    {
+        if (!verifyCsrf($_POST['csrf_token'] ?? '')) {
+            setFlash('error', 'Gecersiz istek.');
+            redirect('admin/blog/' . $id . '/duzenle');
+        }
+
+        require_once __DIR__ . '/../models/Blog.php';
+        $blogModel = new Blog();
+
+        $data = [
+            'title' => trim($_POST['title']),
+            'slug' => slugify(trim($_POST['title'])),
+            'content' => $_POST['content'] ?? '',
+            'excerpt' => trim($_POST['excerpt'] ?? ''),
+            'is_published' => isset($_POST['is_published']) ? 1 : 0,
+        ];
+
+        if ($data['is_published']) {
+            $existing = $blogModel->findById((int) $id);
+            if (!$existing['published_at']) {
+                $data['published_at'] = date('Y-m-d H:i:s');
+            }
+        }
+
+        if (!empty($_FILES['thumbnail']['name'])) {
+            $uploadError = validateUpload($_FILES['thumbnail']);
+            if ($uploadError) {
+                setFlash('error', $uploadError);
+                redirect('admin/blog/' . $id . '/duzenle');
+            }
+            $ext = strtolower(pathinfo($_FILES['thumbnail']['name'], PATHINFO_EXTENSION));
+            $filename = 'blog-' . $data['slug'] . '-' . time() . '.' . $ext;
+            $target = __DIR__ . '/../../public/uploads/blog/' . $filename;
+            @mkdir(dirname($target), 0755, true);
+            if (move_uploaded_file($_FILES['thumbnail']['tmp_name'], $target)) {
+                $data['thumbnail'] = 'uploads/blog/' . $filename;
+            }
+        }
+
+        $blogModel->update((int) $id, $data);
+        setFlash('success', 'Blog yazisi guncellendi.');
+        redirect('admin/blog');
+    }
+
+    public function blogDelete(string $id): void
+    {
+        if (!verifyCsrf($_POST['csrf_token'] ?? '')) {
+            setFlash('error', 'Gecersiz istek.');
+            redirect('admin/blog');
+        }
+        require_once __DIR__ . '/../models/Blog.php';
+        (new Blog())->delete((int) $id);
+        setFlash('success', 'Blog yazisi silindi.');
+        redirect('admin/blog');
+    }
+
+    // ---- Ders Silme ----
+    public function lessonDelete(): void
+    {
+        if (!verifyCsrf($_POST['csrf_token'] ?? '')) {
+            setFlash('error', 'Gecersiz istek.');
+            redirect('admin/kurslar');
+        }
+
+        $db = Database::connect();
+        $lessonId = (int) ($_POST['lesson_id'] ?? 0);
+        $courseId = (int) ($_POST['course_id'] ?? 0);
+
+        $db->prepare('DELETE FROM lessons WHERE id = ?')->execute([$lessonId]);
+        setFlash('success', 'Ders silindi.');
+        redirect('admin/kurslar/' . $courseId . '/duzenle');
+    }
+
+    // ---- Bolum Silme ----
+    public function sectionDelete(): void
+    {
+        if (!verifyCsrf($_POST['csrf_token'] ?? '')) {
+            setFlash('error', 'Gecersiz istek.');
+            redirect('admin/kurslar');
+        }
+
+        $db = Database::connect();
+        $sectionId = (int) ($_POST['section_id'] ?? 0);
+        $courseId = (int) ($_POST['course_id'] ?? 0);
+
+        $db->prepare('DELETE FROM lessons WHERE section_id = ?')->execute([$sectionId]);
+        $db->prepare('DELETE FROM course_sections WHERE id = ?')->execute([$sectionId]);
+        setFlash('success', 'Bolum ve dersleri silindi.');
+        redirect('admin/kurslar/' . $courseId . '/duzenle');
     }
 
     // ---- Ayarlar ----

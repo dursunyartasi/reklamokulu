@@ -381,3 +381,15 @@ INSERT INTO faqs (question, answer, sort_order, is_active) VALUES
 ('Taksit imkanı var mı?', 'Evet, peşin fiyatına 3 taksit imkanımız mevcuttur. Kredi kartı ile taksitli ödeme yapabilirsiniz.', 5, 1),
 ('İade politikanız nedir?', 'Satın alma tarihinden itibaren 14 gün içinde, eğitimin %30''undan fazlasını izlemediyseniz tam iade yapılır.', 6, 1)
 ON DUPLICATE KEY UPDATE question=VALUES(question);
+
+-- ============================================
+-- KURS THUMBNAIL VE PREVIEW VIDEO GUNCELLEME
+-- ============================================
+UPDATE courses SET thumbnail = 'uploads/courses/dijital-pazarlama.jpg', preview_video = 'https://www.youtube.com/watch?v=bixR-KIJKYM' WHERE slug = 'dijital-pazarlama-temel-egitimi' AND thumbnail IS NULL;
+UPDATE courses SET thumbnail = 'uploads/courses/meta-business.jpg', preview_video = 'https://www.youtube.com/watch?v=o4LZ1Fl1F6Q' WHERE slug = 'birebir-destekli-meta-business-egitimi' AND thumbnail IS NULL;
+UPDATE courses SET thumbnail = 'uploads/courses/google-ads.jpg', preview_video = 'https://www.youtube.com/watch?v=oQw8pn-xgZY' WHERE slug = 'birebir-destekli-google-ads-egitimi' AND thumbnail IS NULL;
+UPDATE courses SET thumbnail = 'uploads/courses/seo.jpg', preview_video = 'https://www.youtube.com/watch?v=rOSHk6IBIXY' WHERE slug = 'sifirdan-ileri-seviyeye-seo-egitimi' AND thumbnail IS NULL;
+UPDATE courses SET thumbnail = 'uploads/courses/canva.jpg', preview_video = 'https://www.youtube.com/watch?v=nM3jR5Y0L8s' WHERE slug = 'adan-zye-canva-egitimi' AND thumbnail IS NULL;
+UPDATE courses SET thumbnail = 'uploads/courses/reels.jpg', preview_video = 'https://www.youtube.com/watch?v=6pIEv0FD-lQ' WHERE slug = 'kapsamli-reels-egitimi' AND thumbnail IS NULL;
+UPDATE courses SET thumbnail = 'uploads/courses/yapay-zeka.jpg', preview_video = 'https://www.youtube.com/watch?v=ad79nYk2keg' WHERE slug = 'yapay-zeka-farkindalik-egitimi' AND thumbnail IS NULL;
+UPDATE courses SET thumbnail = 'uploads/courses/wordpress.jpg', preview_video = 'https://www.youtube.com/watch?v=jl8F4WglM3I' WHERE slug = 'adim-adim-wordpress-egitimi' AND thumbnail IS NULL;

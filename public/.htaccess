@@ -2,9 +2,9 @@
     RewriteEngine On
     RewriteBase /
 
-    # HTTPS yonlendirme (production icin)
-    # RewriteCond %{HTTPS} off
-    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    # HTTPS yonlendirme (production)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Mevcut dosya/klasor varsa dokunma
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -14,16 +14,55 @@
     RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>
 
-# Guvenlik
+# Guvenlik Headerlari
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# Hassas dosyalari engelle
+<FilesMatch "\.(env|git|sql|md|yml|yaml|lock|log)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+# Statik dosya onbellegi (performans)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|webp|svg|js|css|woff|woff2)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+</IfModule>
+
+# GZIP sikistirma
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
 
 # PHP ayarlari
 <IfModule mod_php.c>
-    php_value upload_max_filesize 50M
-    php_value post_max_size 50M
-    php_value max_execution_time 300
+    php_value upload_max_filesize 10M
+    php_value post_max_size 12M
+    php_value max_execution_time 120
+    php_flag display_errors Off
+    php_flag log_errors On
 </IfModule>
+
+# Dizin listelemeyi kapat
+Options -Indexes

@@ -6,8 +6,8 @@
     <title><?= e($pageTitle ?? 'Admin') ?> - Reklam Okulu Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="<?= url('css/style.css') ?>?v=20260405">
-    <link rel="stylesheet" href="<?= url('css/admin.css') ?>?v=20260405">
+    <link rel="stylesheet" href="<?= url('css/style.css') ?>?v=20260410b">
+    <link rel="stylesheet" href="<?= url('css/admin.css') ?>?v=20260410b">
 </head>
 <body class="admin-body">
 

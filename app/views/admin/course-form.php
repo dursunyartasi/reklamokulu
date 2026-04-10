@@ -117,7 +117,16 @@
 
 <?php foreach ($sections as $section): ?>
 <div class="admin-section-block">
-    <h3><i class="fas fa-folder"></i> <?= e($section['title']) ?> (<?= count($section['lessons']) ?> ders)</h3>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+        <h3 style="margin:0"><i class="fas fa-folder"></i> <?= e($section['title']) ?> (<?= count($section['lessons']) ?> ders)</h3>
+        <form action="<?= url('admin/bolum-sil') ?>" method="POST" style="display:inline"
+              onsubmit="return confirm('Bu bolumu ve tum derslerini silmek istediginize emin misiniz?')">
+            <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
+            <input type="hidden" name="section_id" value="<?= $section['id'] ?>">
+            <input type="hidden" name="course_id" value="<?= $course['id'] ?>">
+            <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Bolumu Sil</button>
+        </form>
+    </div>
 
     <!-- Ders Ekle -->
     <form action="<?= url('admin/ders-ekle') ?>" method="POST" class="inline-form">
@@ -136,7 +145,7 @@
     <?php if (!empty($section['lessons'])): ?>
     <table class="admin-table admin-table-sm">
         <thead>
-            <tr><th>Sira</th><th>Ders Adı</th><th>Sure</th><th>Önizleme</th></tr>
+            <tr><th>Sira</th><th>Ders Adi</th><th>Sure</th><th>Onizleme</th><th>Islem</th></tr>
         </thead>
         <tbody>
             <?php foreach ($section['lessons'] as $lesson): ?>
@@ -145,6 +154,15 @@
                 <td><?= e($lesson['title']) ?></td>
                 <td><?= $lesson['video_duration'] ? formatDuration($lesson['video_duration']) : '-' ?></td>
                 <td><?= $lesson['is_free_preview'] ? 'Evet' : '-' ?></td>
+                <td>
+                    <form action="<?= url('admin/ders-sil') ?>" method="POST" style="display:inline"
+                          onsubmit="return confirm('Bu dersi silmek istediginize emin misiniz?')">
+                        <input type="hidden" name="csrf_token" value="<?= csrfToken() ?>">
+                        <input type="hidden" name="lesson_id" value="<?= $lesson['id'] ?>">
+                        <input type="hidden" name="course_id" value="<?= $course['id'] ?>">
+                        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                    </form>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

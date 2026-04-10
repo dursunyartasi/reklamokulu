@@ -18,12 +18,70 @@ function loadEnv(string $path): void
     }
 }
 
-// Session baslat
+// Session baslat (guvenli ayarlarla)
 function initSession(): void
 {
     if (session_status() === PHP_SESSION_NONE) {
+        $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+        session_set_cookie_params([
+            'lifetime' => 0,
+            'path' => '/',
+            'domain' => '',
+            'secure' => $isHttps,
+            'httponly' => true,
+            'samesite' => 'Lax',
+        ]);
         session_start();
     }
+}
+
+// Guvenlik headerlari gonder
+function sendSecurityHeaders(): void
+{
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: SAMEORIGIN');
+    header('X-XSS-Protection: 1; mode=block');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+        header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+    }
+}
+
+// Dosya yukleme dogrulama
+function validateUpload(array $file, array $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'], int $maxSize = 5242880): ?string
+{
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return 'Dosya yukleme hatasi.';
+    }
+    if ($file['size'] > $maxSize) {
+        return 'Dosya boyutu cok buyuk. Maksimum: ' . round($maxSize / 1048576) . 'MB';
+    }
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mimeType = $finfo->file($file['tmp_name']);
+    if (!in_array($mimeType, $allowedTypes, true)) {
+        return 'Gecersiz dosya tipi. Izin verilen: ' . implode(', ', $allowedTypes);
+    }
+    $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    $allowedExts = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+    if (!in_array($ext, $allowedExts, true)) {
+        return 'Gecersiz dosya uzantisi.';
+    }
+    return null;
+}
+
+// Rate limiting (basit, session tabanli)
+function rateLimit(string $key, int $maxAttempts = 5, int $windowSeconds = 300): bool
+{
+    $now = time();
+    $sessionKey = 'rate_limit_' . $key;
+    $attempts = $_SESSION[$sessionKey] ?? [];
+    $attempts = array_filter($attempts, fn($t) => $t > ($now - $windowSeconds));
+    if (count($attempts) >= $maxAttempts) {
+        return false;
+    }
+    $attempts[] = $now;
+    $_SESSION[$sessionKey] = $attempts;
+    return true;
 }
 
 // CSRF token olustur
@@ -94,9 +152,9 @@ function redirect(string $path): void
 }
 
 // Guvenlik
-function e(string $value): string
+function e(?string $value): string
 {
-    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+    return htmlspecialchars($value ?? '', ENT_QUOTES, 'UTF-8');
 }
 
 function slugify(string $text): string

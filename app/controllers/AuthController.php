@@ -18,6 +18,12 @@ class AuthController
             redirect('giris');
         }
 
+        // Rate limiting - 5 deneme / 5 dakika
+        if (!rateLimit('login', 5, 300)) {
+            setFlash('error', 'Cok fazla basarisiz giris denemesi. Lutfen 5 dakika bekleyin.');
+            redirect('giris');
+        }
+
         require_once __DIR__ . '/../models/User.php';
         $userModel = new User();
 

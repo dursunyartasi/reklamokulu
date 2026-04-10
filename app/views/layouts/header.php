@@ -12,11 +12,22 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="ReklamOkulu">
     <link rel="apple-touch-icon" href="<?= url('icons/icon-192x192.png') ?>">
-    <!-- Fonts & CSS -->
+    <!-- Preconnect & Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://player.vimeo.com">
+    <!-- Fonts & CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="<?= url('css/style.css') ?>?v=20260405c">
+    <link rel="stylesheet" href="<?= url('css/style.css') ?>?v=20260410b">
+    <!-- Open Graph -->
+    <meta property="og:title" content="<?= e($pageTitle ?? 'Reklam Okulu') ?>">
+    <meta property="og:description" content="<?= e($settings['site_description'] ?? 'Dijital Pazarlama Eğitim Platformu') ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?= e($_ENV['APP_URL'] ?? '') ?>">
+    <link rel="canonical" href="<?= e($_ENV['APP_URL'] ?? '') ?><?= $_SERVER['REQUEST_URI'] ?? '' ?>">
 </head>
 <body>
 

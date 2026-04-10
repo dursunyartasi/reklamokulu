@@ -4,17 +4,7 @@
 </IfModule>
 
 # Script dosyalarini engelle
-<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|cgi|pl|asp|aspx|shtml|shtm|htaccess|htpasswd|ini|log|sh|bak|config|sql|fla|psd|exe|bat|cmd|vbs|js|html)$">
-    <IfModule mod_authz_core.c>
-        Require all denied
-    </IfModule>
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|cgi|pl|asp|aspx|shtml|shtm|htaccess|htpasswd|ini|log|sh|bak|config|sql)$">
+    Order allow,deny
+    Deny from all
 </FilesMatch>
-
-# Sadece gorsel dosyalara izin ver
-<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
-    <IfModule mod_authz_core.c>
-        Require all granted
-    </IfModule>
-</FilesMatch>
-
-Options -Indexes

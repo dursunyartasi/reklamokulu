@@ -2,10 +2,6 @@
     RewriteEngine On
     RewriteBase /
 
-    # HTTPS yonlendirme (production)
-    RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
     # Mevcut dosya/klasor varsa dokunma
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
@@ -65,4 +61,6 @@
 </IfModule>
 
 # Dizin listelemeyi kapat
-Options -Indexes
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
